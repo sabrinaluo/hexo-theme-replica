@@ -1,0 +1,19 @@
+<!DOCTYPE>
+<html>
+<%- partial('_partial/head') %>
+<body>
+<%- partial('_partial/navbar') %>
+<main class="container">
+  <%- partial('_partial/header') %>
+  <div class="row">
+    <div class="col-sm-9">
+      <%- body %>
+    </div>
+    <div class="col-sm-3">
+      <%- partial('_partial/sidebar') %>
+    </div>
+  </div>
+</main>
+</body>
+<%- partial('_partial/script') %>
+</html>
