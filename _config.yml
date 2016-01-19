@@ -1,0 +1,11 @@
+# navbar menu
+location: Hong Kong
+email: test@test.com
+menu:
+ archives: true
+ tags: true
+ categories: true
+social:
+  github:
+  weibo:
+  linkedin:

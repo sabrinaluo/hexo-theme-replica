@@ -1,56 +1,24 @@
-<nav class="navbar navbar-default">
+<nav>
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu_mobile_collapse" aria-expanded="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><i class="fa fa-github" style="font-size:30px;"></i></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="menu_mobile_collapse">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2">This website</span>
-            <input type="text" class="form-control" placeholder="search">
-          </div>
-        </div>
+    <a href="<%= config.root %>" class="site-logo"><i class="fa fa-github"></i></a>
+    <div class="site-search">
+      <form>
+        <label class="form-control">
+          <span class="scope-badge">This website</span>
+          <input type="text" placeholder="Search">
+        </label>
       </form>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="<%= config.root %>">Home</a></li>
-        <li><a href="#">Archieve</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#">
-            <i class="fa fa-rss"></i>
-          </a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-share-alt"></i> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="github.com/sabrinaluo"><i class="fa fa-github"></i></a></li>
-            <li><a href="weibo.com/206663121"><i class="fa fa-weibo"></i></a></li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a href="#">
-                <i class="fa fa-qq"></i>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">I have nothing to say</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
-    <!-- /.navbar-collapse -->
+    <ul>
+      <% if(theme.menu.archives){ %>
+      <li><a href="<%= url_for(theme.archive_dir) %>">Archive</a></li>
+      <% } %>
+      <% if(theme.menu.categories){ %>
+      <li><a href="<%= url_for(theme.category_dir) %>">Categories</a></li>
+      <% } %>
+      <% if(theme.menu.tags){ %>
+      <li><a href="<%= url_for(theme.tag_dir) %>">Tags</a></li>
+      <% } %>
+    </ul>
   </div>
-  <!-- /.container-fluid -->
 </nav>

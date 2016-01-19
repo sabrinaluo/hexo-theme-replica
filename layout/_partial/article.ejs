@@ -1,5 +1,19 @@
-<h2><a href="<%= page.permalink %>"><%= page.title %></a></h2>
-<article>
-  <%- page.content %>
-</article>
-<%- partial('_widget/duoshuo') %>
+<%
+var updateDate = page.updated.format('YYYY-MM-DD HH:mm:ss');
+var publishDate=page.date.format('YYYY-MM-DD HH:mm:ss')
+%>
+<div class="boxed-group">
+  <h3>
+    <a href="<%=url_for(page.path)%>"><%=page.title|| 'Untitle'%></a>
+    <span>
+      <i class="fa fa-pencil"></i> Published: <%=publishDate%>
+    <%if(publishDate!==updateDate){%>
+      <i class="fa fa-clock-o"></i> Last Updated: <%=updateDate%>
+      <%}%>
+    </span>
+  </h3>
+
+  <article>
+    <%- page.content %>
+  </article>
+</div>
