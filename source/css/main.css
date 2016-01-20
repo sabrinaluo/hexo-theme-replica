@@ -51,7 +51,7 @@ nav a:visited {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 880px;
+  width: 980px;
 }
 
 .left {
@@ -215,12 +215,9 @@ footer li {
   background-image: linear-gradient(#fcfcfc, #eee);
 }
 
-.btn:hover {
-  background-image: linear-gradient(#eee, #ddd);
-}
-
 .btn-group {
   float: left;
+  padding-left: 10px;
 }
 
 .btn-group-left {
@@ -229,14 +226,29 @@ footer li {
   border-top-right-radius: 0;
 }
 
+.btn-group-left:hover {
+  background-image: linear-gradient(#eee, #ddd);
+}
+
 .btn-group-right {
   position: relative;
-  left: -5px;
+  left: -1px;
   margin-left: 0;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   background: none;
   border-color: #ddd;
+}
+
+a.btn-group-left,
+a.btn-group-right {
+  cursor: pointer;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover.btn-group-right {
+  color: #4078c0;
 }
 
 .clearfix {
@@ -264,7 +276,7 @@ ul {
 /* about me section */
 
 .about-me {
-  width: 220px;
+  width: 230px;
 }
 
 img.arvatar {
@@ -310,7 +322,7 @@ img.arvatar {
   width: 25px;
   margin-right: 5px;
   color: #999;
-  font-size: 1px;
+  font-size: 15px;
   text-align: center;
 }
 
@@ -374,7 +386,7 @@ ul.social-network {
 /* recent post section */
 
 .recent-post {
-  width: 620px;
+  width: 710px;
   margin-bottom: 20px;
 }
 
@@ -399,7 +411,7 @@ ul.social-network {
   position: absolute;
   right: 10px;
   font-weight: normal;
-  font-size: 10px;
+  font-size: 11px;
   color: #767676;
   font-style: italic;
 }
@@ -416,20 +428,20 @@ ul.social-network {
   text-decoration: underline;
 }
 
-.boxed-group ul {
+.boxed-group > ul {
   padding: 0;
   margin: 0;
   list-style: none;
   margin-top: -1px;
 }
 
-.boxed-group ul li {
+.boxed-group > ul li {
   padding: 0;
   display: list-item;
   border-top: 1px solid #d8d8d8;
 }
 
-.boxed-group ul li a {
+.boxed-group > ul li a {
   position: relative;
   display: block;
   padding: 5px 30px 5px;
@@ -474,6 +486,9 @@ a:hover .post-title {
 
 article {
   padding: 45px;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
 }
 
 article {
@@ -499,6 +514,32 @@ article h1 {
   border-bottom: 1px solid #eee;
   font-size: 36px;
   line-height: 1.2;
+  padding-bottom: 5px;
+}
+
+article h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+article h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+article h4 {
+  font-size: 1.25em;
+}
+
+article h5 {
+  font-size: 1em;
+}
+
+article h6 {
+  font-size: 1em;
+  color: #777;
 }
 
 article p {
@@ -508,6 +549,193 @@ article p {
   line-height: 1.6;
 }
 
-.post-graph{
- width: 620px;
+article ul,
+article ol {
+  margin-top: 0;
+  margin-bottom: 16px;
+  padding-left: 2em;
+}
+
+article ul {
+  list-style: disc;
+}
+
+article ol {
+  list-style-type: decimal;
+}
+
+article li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+.boxed-group article a:hover {
+  text-decoration: underline;
+}
+
+.post-graph {
+  width: 620px;
+}
+
+article code, article tt {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px
+}
+
+article code:before, article code:after, article tt:before, article tt:after {
+  letter-spacing: -0.2em;
+  content: "\00a0"
+}
+
+article code br, article tt br {
+  display: none
+}
+
+article del code {
+  text-decoration: inherit
+}
+
+article pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0
+}
+
+article .highlight {
+  margin-bottom: 16px
+}
+
+article .highlight pre, article pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px
+}
+
+figure {
+  padding: 0;
+  margin: 0;
+}
+
+.highlight {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.gutter pre {
+  color: #999;
+}
+
+pre {
+  color: #525252;
+}
+
+pre .function .keyword,
+pre .constant {
+  color: #a71d5d;
+}
+
+pre .keyword {
+
+  color: #a71d5d;
+}
+
+pre .attribute {
+  color: #795da3;
+}
+
+pre .number,
+pre .literal {
+  color: #0086b3;
+}
+
+/* pre .tag,*/
+pre .tag .title,
+pre .change,
+pre .winutils,
+pre .flow,
+pre .lisp .title,
+pre .clojure .built_in,
+pre .nginx .title,
+pre .tex .special {
+  color: #63a35c;
+}
+
+pre .class .title {
+  color: #fff;
+}
+
+pre .symbol,
+pre .symbol .string,
+pre .value,
+pre .regexp {
+  color: #42b983;
+}
+
+pre .title {
+  color: #795da3;
+}
+
+pre .tag .value,
+pre .string,
+pre .subst,
+pre .haskell .type,
+pre .preprocessor,
+pre .ruby .class .parent,
+pre .built_in,
+pre .sql .aggregate,
+pre .django .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .javadoc,
+pre .django .filter .argument,
+pre .smalltalk .localvars,
+pre .smalltalk .array,
+pre .attr_selector,
+pre .pseudo,
+pre .addition,
+pre .stream,
+pre .envvar,
+pre .apache .tag,
+pre .apache .cbracket,
+pre .tex .command,
+pre .prompt {
+  color: #183691;
+}
+
+pre .comment,
+pre .java .annotation,
+pre .python .decorator,
+pre .template_comment,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .shebang,
+pre .apache .sqbracket,
+pre .tex .formula {
+  color: #b3b3b3;
+}
+
+pre .coffeescript .javascript,
+pre .javascript .xml,
+pre .tex .formula,
+pre .xml .javascript,
+pre .xml .vbscript,
+pre .xml .css,
+pre .xml .cdata {
+  opacity: 0.5;
 }

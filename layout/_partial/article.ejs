@@ -1,19 +1,20 @@
 <%
 var updateDate = page.updated.format('YYYY-MM-DD HH:mm:ss');
-var publishDate=page.date.format('YYYY-MM-DD HH:mm:ss')
+var publishDate = page.date.format('YYYY-MM-DD HH:mm:ss')
 %>
-<div class="boxed-group">
+<div class="boxed-group" xmlns="http://www.w3.org/1999/html">
   <h3>
-    <a href="<%=url_for(page.path)%>"><%=page.title|| 'Untitle'%></a>
+    <i class="fa fa-user"></i>
+     <a><%= config.author || '' %></a>
     <span>
-      <i class="fa fa-pencil"></i> Published: <%=publishDate%>
-    <%if(publishDate!==updateDate){%>
-      <i class="fa fa-clock-o"></i> Last Updated: <%=updateDate%>
-      <%}%>
+      <i class="fa fa-pencil"></i> Published: <%= publishDate %>
+      <% if(publishDate !== updateDate){ %>
+      <i class="fa fa-clock-o"></i> Last Updated: <%= updateDate %>
+      <% } %>
     </span>
   </h3>
-
   <article>
+    <h1><%= page.title || 'Untitle' %></h1>
     <%- page.content %>
   </article>
 </div>
