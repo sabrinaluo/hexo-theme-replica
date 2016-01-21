@@ -1,1 +1,93 @@
-<%- partial('_partial/archive',{pagination: 2, index: true}) %>
+<%
+var posts = site.posts.data;
+var oldestPostDate = posts.length ? posts[posts.length - 1].date : {date: moment()};
+var startFrom = oldestPostDate.format('Do MMM YYYY');
+var recentPosts = page.posts.data.slice(0, 5);
+%>
+<div class="column about-me  read-more">
+  <img class="arvatar" src="https://octodex.github.com/images/baracktocat.jpg">
+  <h1 class="blog-info">
+    <span class="blog-info-title">
+      <%= theme.title %>
+    </span>
+    <span class="blog-info-author">
+      <%= theme.author %>
+    </span>
+  </h1>
+  <ul class="details">
+    <li><i class="fa fa-map-marker"></i><%= theme.location %></li>
+    <li>
+      <i class="fa fa-envelope-o"></i><a
+              href="mailto:<%= theme.email %>"><%= theme.email %></a>
+    </li>
+    <li>
+      <i class="fa fa-link"></i><a href="<%= theme.url %>"><%= theme.url %></a>
+    </li>
+    <li><i class="fa fa-clock-o"></i>Started from <%= startFrom %>
+    </li>
+  </ul>
+
+  <ul class="stat">
+    <li>
+      <a href="<%= url_for(theme.archive_dir) %>">
+        <div class="stat-count"><%= site.posts.length %></div>
+        <div class="stat-name">Posts</div>
+      </a>
+    </li>
+    <li>
+      <a href="<%= url_for(theme.tag_dir) %>">
+        <div class="stat-count"><%= site.tags.length %></div>
+        <div class="stat-name">Tags</div>
+      </a>
+    </li>
+    <li>
+      <a href="<%= url_for(theme.category_dir) %>">
+        <div class="stat-count"><%= site.categories.length %></div>
+        <div class="stat-name">Categories</div>
+      </a>
+    </li>
+  </ul>
+
+  <ul class="social-network">
+    <li>
+      <a href="<%= theme.social.github %>"><i class="fa fa-github"></i></a>
+    </li>
+    <li>
+      <a href="<%= theme.social.weibo %>"><i class="fa fa-weibo"></i></a>
+    </li>
+    <li>
+      <a href="<%= theme.social.linkedin %>"> <i class="fa fa-linkedin"></i></a>
+    </li>
+  </ul>
+</div>
+
+<div class="column recent-post read-more">
+  <div class="boxed-group">
+    <h3>
+      Recent Post
+    </h3>
+    <ul>
+      <% recentPosts.map(function(post){ %>
+      <li>
+        <a href="<%= url_for(post.path) %>">
+          <span class="icon-left"><i class="fa fa-book"></i></span>
+          <span class="post-title read-more"><%= post.title || 'Untitled' %></span>
+          <span class="icon-right"><i class="fa fa-star"></i></span>
+          <span class="subtext read-more">
+            <%= post.content
+                    .replace(/<[^>]*>/ig, ' ')
+                    .substr(0, 100) %>
+          </span>
+        </a>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<div class="column post-graph">
+  <div class="boxed-group">
+    <h3>Post Frequency</h3>
+    test
+  </div>
+</div>

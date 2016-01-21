@@ -1,5 +1,20 @@
-<h2><a href="<%= page.permalink %>"><%= page.title %></a></h2>
-<article>
-  <%- page.content %>
-</article>
-<%- partial('_widget/duoshuo') %>
+<%
+var updateDate = page.updated.format('YYYY-MM-DD HH:mm:ss');
+var publishDate = page.date.format('YYYY-MM-DD HH:mm:ss')
+%>
+<div class="boxed-group" xmlns="http://www.w3.org/1999/html">
+  <h3>
+    <i class="fa fa-user"></i>
+     <a><%= config.author || '' %></a>
+    <span>
+      <i class="fa fa-pencil"></i> Published: <%= publishDate %>
+      <% if(publishDate !== updateDate){ %>
+      <i class="fa fa-clock-o"></i> Last Updated: <%= updateDate %>
+      <% } %>
+    </span>
+  </h3>
+  <article>
+    <h1><%= page.title || 'Untitle' %></h1>
+    <%- page.content %>
+  </article>
+</div>
