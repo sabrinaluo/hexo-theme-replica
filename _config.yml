@@ -1,6 +1,6 @@
 # navbar menu
-location: Hong Kong
-email: test@test.com
+location: 
+email: 
 menu:
  archives: true
  tags: true
