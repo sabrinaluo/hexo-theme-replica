@@ -5,18 +5,18 @@
   </h2>
   <div class="header-btn">
     <div class="btn-group">
-      <a class="btn btn-group-left"><i class="fa fa-file-text"></i> Posts </a>
-      <a href="/" class="btn btn-group-right"> <%= site.posts.length %> </a>
+      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-left"><i class="fa fa-file-text"></i> Posts </a>
+      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-right"> <%= site.posts.length %> </a>
     </div>
 
     <div class="btn-group">
-      <a class="btn btn-group-left"><i class="fa fa-tags"></i> Tags </a>
-      <a href="/" class="btn btn-group-right"> <%= site.tags.length %> </a>
+      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-left"><i class="fa fa-tags"></i> Tags </a>
+      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-right"> <%= site.tags.length %> </a>
     </div>
 
     <div class="btn-group">
-      <a class="btn btn-group-left"><i class="fa fa-list-ul"></i> Categories </a>
-      <a href="/"
+      <a href="<%= url_for(theme.category_dir) %>" class="btn btn-group-left"><i class="fa fa-list-ul"></i> Categories </a>
+      <a href="<%= url_for(theme.category_dir) %>"
          class="btn btn-group-right"> <%= site.categories.length %> </a>
     </div>
   </div>

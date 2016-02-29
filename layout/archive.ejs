@@ -2,7 +2,7 @@
 var posts = page.posts.data;
 %>
 <%- partial('_partial/header') %>
-<% posts.map(function(post){ %>
+<% posts.forEach(function(post){ %>
 <div class="archive">
 <h2><a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a></h2>
 <p class="read-more">

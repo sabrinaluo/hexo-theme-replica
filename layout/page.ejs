@@ -1,2 +1,7 @@
 <%- partial('_partial/header') %>
-sorry, this page is under construction!
+<% if(page.title === 'tags'){ %>
+<%- list_tags() %>
+<% } %>
+<% if(page.title === 'categories'){ %>
+<%- list_categories() %>
+<% } %>

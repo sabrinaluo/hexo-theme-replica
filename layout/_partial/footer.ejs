@@ -1,14 +1,27 @@
+<%
+var github = config.social.github || theme.social.github;
+var weibo = config.social.weibo || theme.social.weibo;
+var linkedin = config.social.linkedin || theme.social.linkedin;
+var location = config.location || theme.location;
+var url = config.url;
+%>
 <footer class="container clearfix">
   <ul class="social-link">
-    <li>© 2016 <%= config.author%></li>
-    <li><a href="<%=theme.url%>">Home</a></li>
-    <li><a href="<%=theme.github%>">Github</a></li>
-    <li><a href="<%=theme.weibo%>">Weibo</li>
-    <li><a href="<%=theme.linkedin%>">Linkedin</a></li>
+    <li>© 2016 <%= config.author %></li>
+
+    <li><a href="<%= url %>">Home</a></li>
+    <% if(github){ %>
+    <li><a href="<%= github %>">Github</a></li>
+    <% }if(weibo){ %>
+    <li><a href="<%= weibo %>">Weibo</li>
+    <% }if(linkedin){ %>
+    <li><a href="<%= linkedin %>">Linkedin</a></li>
+    <% } %>
   </ul>
   <div class="theme-info">Theme <a
-          href="https://github.com/sabrinaluo/hexo-theme-replica">Replica</a> by <a
-          href="http://github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+    by <a
+            href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
   </div>
   <a href="<%= config.url %>" class="site-logo"><i class="fa fa-github"></i></a>
 </footer>

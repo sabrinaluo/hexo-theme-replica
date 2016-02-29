@@ -2,7 +2,13 @@
 var posts = site.posts.data;
 var oldestPostDate = posts.length ? posts[posts.length - 1].date : {date: moment()};
 var startFrom = oldestPostDate.format('Do MMM YYYY');
-var recentPosts = page.posts.data.slice(0, 5);
+var recentPosts = page.posts.data.slice(0, 10);
+var github = config.social.github || theme.social.github;
+var weibo = config.social.weibo || theme.social.weibo;
+var linkedin = config.social.linkedin || theme.social.linkedin;
+var location = config.location || theme.location;
+var email = config.email || theme.email;
+var url = config.url;
 %>
 <div class="column about-me  read-more">
   <img class="arvatar" src="https://octodex.github.com/images/baracktocat.jpg">
@@ -15,13 +21,16 @@ var recentPosts = page.posts.data.slice(0, 5);
     </span>
   </h1>
   <ul class="details">
-    <li><i class="fa fa-map-marker"></i><%= theme.location %></li>
+    <% if(location){ %>
+    <li><i class="fa fa-map-marker"></i><%= location %></li>
+    <% }if(email){ %>
     <li>
       <i class="fa fa-envelope-o"></i><a
-              href="mailto:<%= theme.email %>"><%= theme.email %></a>
+              href="mailto:<%= email %>"><%= email %></a>
     </li>
+    <% } %>
     <li>
-      <i class="fa fa-link"></i><a href="<%= theme.url %>"><%= theme.url %></a>
+      <i class="fa fa-link"></i><a href="<%= url %>"><%= url %></a>
     </li>
     <li><i class="fa fa-clock-o"></i>Started from <%= startFrom %>
     </li>
@@ -49,15 +58,19 @@ var recentPosts = page.posts.data.slice(0, 5);
   </ul>
 
   <ul class="social-network">
+    <% if(github){ %>
     <li>
-      <a href="<%= theme.social.github %>"><i class="fa fa-github"></i></a>
+      <a href="<%= github %>"><i class="fa fa-github"></i></a>
     </li>
+    <% } if(weibo){ %>
     <li>
       <a href="<%= theme.social.weibo %>"><i class="fa fa-weibo"></i></a>
     </li>
+    <% } if(linkedin){ %>
     <li>
       <a href="<%= theme.social.linkedin %>"> <i class="fa fa-linkedin"></i></a>
     </li>
+    <% } %>
   </ul>
 </div>
 
@@ -67,7 +80,7 @@ var recentPosts = page.posts.data.slice(0, 5);
       Recent Post
     </h3>
     <ul>
-      <% recentPosts.map(function(post){ %>
+      <% recentPosts.forEach(function(post){ %>
       <li>
         <a href="<%= url_for(post.path) %>">
           <span class="icon-left"><i class="fa fa-book"></i></span>
@@ -82,12 +95,5 @@ var recentPosts = page.posts.data.slice(0, 5);
       </li>
       <% }) %>
     </ul>
-  </div>
-</div>
-
-<div class="column post-graph">
-  <div class="boxed-group">
-    <h3>Post Frequency</h3>
-    test
   </div>
 </div>
