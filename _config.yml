@@ -9,3 +9,5 @@ social:
   github:
   weibo:
   linkedin:
+
+rss_dir: atom.xml

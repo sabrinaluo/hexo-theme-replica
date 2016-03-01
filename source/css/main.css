@@ -740,7 +740,17 @@ pre .xml .cdata {
   opacity: 0.5;
 }
 
-.archive{
+.archive {
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
+}
+
+.tag-list-count:before,
+.category-list-count:before {
+  content: ' ('
+}
+
+.tag-list-count:after,
+.category-list-count:after {
+  content: ')'
 }

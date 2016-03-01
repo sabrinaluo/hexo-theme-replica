@@ -2,20 +2,31 @@
   <h2>
     <i class="fa fa-book text-muted"></i>
     <a href="<%= config.root %>"><%= config.title %></a>
+    <% if(page.title === "tags"){ %>
+    /<a href="<%= url_for(theme.tag_dir) %>"> Tags</a>
+    <% } %>
+    <% if(page.title === "categories"){ %>
+    /<a href="<%= url_for(theme.category_dir) %>"> Categories</a>
+    <% } %>
   </h2>
   <div class="header-btn">
     <div class="btn-group">
-      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-left"><i class="fa fa-file-text"></i> Posts </a>
-      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-right"> <%= site.posts.length %> </a>
+      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-left"><i
+                class="fa fa-file-text"></i> Posts </a>
+      <a href="<%= url_for(theme.archive_dir) %>"
+         class="btn btn-group-right"> <%= site.posts.length %> </a>
     </div>
 
     <div class="btn-group">
-      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-left"><i class="fa fa-tags"></i> Tags </a>
-      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-right"> <%= site.tags.length %> </a>
+      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-left"><i
+                class="fa fa-tags"></i> Tags </a>
+      <a href="<%= url_for(theme.tag_dir) %>"
+         class="btn btn-group-right"> <%= site.tags.length %> </a>
     </div>
 
     <div class="btn-group">
-      <a href="<%= url_for(theme.category_dir) %>" class="btn btn-group-left"><i class="fa fa-list-ul"></i> Categories </a>
+      <a href="<%= url_for(theme.category_dir) %>" class="btn btn-group-left"><i
+                class="fa fa-list-ul"></i> Categories </a>
       <a href="<%= url_for(theme.category_dir) %>"
          class="btn btn-group-right"> <%= site.categories.length %> </a>
     </div>
