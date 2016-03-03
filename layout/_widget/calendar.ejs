@@ -1,0 +1,315 @@
+<div class="column post-calendar" id="calendar">
+  <div class="boxed-group">
+    <h3>
+      Contributions
+    </h3>
+    <div class="calendar-graph">
+      <svg width="721" height="110">
+        <g transform="translate(20, 20)">
+          <g v-for="week in calendar" :transform="week.transform">
+            <rect v-for="day in week.days"
+                  :y="day.y" :fill="day.fill"
+                  @click="selectedDate=day.date"
+                  :class="{active:selectedDate===day.date}"
+                  data-count="{{day.posts.length}}"
+                  data-date="{{day.date}}"
+                  class="day" width="11" height="11"
+            ></rect>
+          </g>
+          <text x="0" y="-5" class="month">Mar</text>
+          <text x="65" y="-5" class="month">Apr</text>
+          <text x="117" y="-5" class="month">May</text>
+          <text x="182" y="-5" class="month">Jun</text>
+          <text x="234" y="-5" class="month">Jul</text>
+          <text x="286" y="-5" class="month">Aug</text>
+          <text x="351" y="-5" class="month">Sep</text>
+          <text x="403" y="-5" class="month">Oct</text>
+          <text x="455" y="-5" class="month">Nov</text>
+          <text x="520" y="-5" class="month">Dec</text>
+          <text x="572" y="-5" class="month">Jan</text>
+          <text x="637" y="-5" class="month">Feb</text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="9"
+                style="display: none;">S
+          </text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="22">M</text>
+          <text text-anchor="middle" class="wday" dx="-10" dy=" 35"
+                style="display: none;">T
+          </text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="48">W</text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="61"
+                style="display: none;">T
+          </text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="74">F</text>
+          <text text-anchor="middle" class="wday" dx="-10" dy="87"
+                style="display: none;">S
+          </text>
+        </g>
+      </svg>
+    </div>
+    <div class="calendar-footer">
+      <div class="calendar-legend">
+        <span>Less</span>
+        <ul class="legend">
+          <li style="background-color: #eee"></li>
+          <li style="background-color: #d6e685"></li>
+          <li style="background-color: #8cc665"></li>
+          <li style="background-color: #44a340"></li>
+          <li style="background-color: #1e6823"></li>
+        </ul>
+        <span>More</span>
+      </div>
+    </div>
+    <div class="calendar-col left">
+      <div class="calendar-col-title">
+        Contributions in last year
+      </div>
+      <div class="calendar-col-count">
+        {{posts.length}} total
+      </div>
+      <div class="calendar-col-date">
+        {{dateRange.start}} - {{dateRange.end}}
+      </div>
+    </div>
+    <div class="calendar-col mid">
+      <div class="calendar-col-title">
+        Longest streak
+      </div>
+      <div class="calendar-col-count">
+        {{longestStreak.count}} days
+      </div>
+      <div class="calendar-col-date">
+        {{longestStreak.start}} - {{longestStreak.end}}
+      </div>
+    </div>
+    <div class="calendar-col right">
+      <div class="calendar-col-title">
+        Current streak
+      </div>
+      <div class="calendar-col-count">
+        {{currentStreak.count}}
+      </div>
+      <div class="calendar-col-date">
+        Last contributed on {{currentStreak.relativeTime}}
+      </div>
+    </div>
+  </div>
+
+  <h3>Contribution activity</h3>
+  <div class="contribution-list">
+    <ul>
+      <li v-for="post in posts | filterBy selectedDate in 'date'">
+        <a>{{post.title}}
+        </a>
+        <span>{{post.date}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script src="//cdn.jsdelivr.net/vue/latest/vue.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+<%
+var dateFormat = 'YYYY-MM-DD';
+var postsArr = [];
+var oneYearAgo = new Date();
+oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+site.posts.data.forEach(function(post) {
+  if (post.date > oneYearAgo) {
+    postsArr.push({
+      id: post._id,
+      date: post.date.toISOString().slice(0, 10),
+      title: post.title,
+      url: post.permlink
+    });
+  }
+});
+
+postsArr.sort(function(a, b) {
+  return new Date(a.date) - new Date(b.date);
+});
+
+var longestStreak = getLongestStreak(postsArr);
+var latestStreak = getLatestStreak(postsArr);
+
+function getLongestStreak(posts) {
+  var longest = 0;
+  var temp = 0;
+  var start = '';
+  var end = '';
+  for (var i = 0; i < posts.length - 1; i++) {
+    var date0 = moment(posts[i].date).format(dateFormat);
+    var date1 = moment(posts[i].date).add(1, 'days').format(dateFormat);
+    var date2 = moment(posts[i + 1].date).format(dateFormat);
+
+    if (date1 === date2 || date0 === date2) {
+      temp++;
+    } else {
+
+      if (temp > longest) {
+        end = date0;
+      }
+      longest = Math.max(longest, temp);
+      temp = 0;
+    }
+  }
+
+  start = moment(end).subtract(longest - 1, 'days').format('MMM DD');
+  end = moment(end).format('MMM DD');
+
+  return {
+    count: longest,
+    start: start,
+    end: end
+  }
+}
+
+function getLatestStreak(posts) {
+  var streak = 0;
+  var start = '';
+  var end = '';
+
+  posts.reverse();
+  for (var i = 0; i < posts.length - 1; i++) {
+    var date0 = moment(posts[i].date).format(dateFormat);
+    var date1 = moment(posts[i].date).subtract(1, 'days').format(dateFormat);
+    var date2 = moment(posts[i + 1].date).format(dateFormat);
+    if (date1 === date2 || date0 === date2) {
+      streak++;
+    } else {
+      streak = 1;
+      end = date0;
+      break;
+    }
+  }
+
+  start = moment(end).subtract(streak - 1, 'days').format(dateFormat);
+
+  return {
+    count: streak,
+    start: start,
+    end: end
+  }
+}
+%>
+<script>
+  var posts = <%- JSON.stringify(postsArr) %>;
+  var longestStreak = <%- JSON.stringify(longestStreak) %>;
+  var latestStreak = <%- JSON.stringify(latestStreak) %>;
+  var currentStreak = getCurrentStreak(latestStreak);
+  currentStreak.relativeTime = moment(currentStreak.date).fromNow();
+
+  var oneYearAgo = new Date();
+  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+  posts = posts.filter(function(post) {
+    return new Date(post.date) > oneYearAgo;
+  });
+  var calendar = getCalendar(posts);
+
+  var dateRange = {
+    start: moment(oneYearAgo).format('MMM DD, YYYY'),
+    end: moment().format('MMM DD, YYYY')
+  }
+
+  var app = new Vue({
+    el: '#calendar',
+    data: {
+      posts: posts,
+      selectedDate: 'none',
+      calendar: calendar,
+      longestStreak: longestStreak,
+      currentStreak: currentStreak,
+      dateRange: dateRange
+    },
+    methods: {},
+    computed: {}
+  });
+
+  function getCurrentStreak(latestStreak) {
+    var today = new Date().toISOString().slice(0, 10);
+    var count = latestStreak.end === today ? latestStreak.count : 0;
+
+    return {
+      count: count,
+      date: latestStreak.end
+    }
+  }
+
+
+  function getCalendar(posts) {
+    // raw calendar
+    var maxCount = 0;
+    var tmr = new Date();
+    tmr.setDate(tmr.getDate() + 1);
+    var tmrStr = tmr.toISOString().slice(0, 10);
+    var date = new Date();
+    date.setYear(date.getFullYear() - 1); // start date is a year ago;
+    var calendar = [];
+    while (date.toISOString().slice(0, 10) !== tmrStr) {
+      var day = date.getDay();
+      if (day === 0 || calendar.length === 0) {
+        var x = calendar.length * 13;
+        calendar.push({
+          transform: 'translate(' + x + ',0)',
+          days: []
+        })
+      }
+
+      calendar[calendar.length - 1].days.push({
+        y: day * 13,
+        date: date.toISOString().slice(0, 10),
+        posts: []
+      });
+      date.setDate(date.getDate() + 1);
+    }
+
+    // handle post info
+    posts.forEach(function(post) {
+      var x = getIndexByDate(post.date)[0];
+      var y = getIndexByDate(post.date)[1];
+
+      calendar[x].days[y].posts.push({
+        title: post.title,
+        url: post.url
+      });
+
+      var len = calendar[x].days[y].posts.length;
+      maxCount = Math.max(len, maxCount);
+    })
+
+
+    // handle fill color
+    calendar.forEach(function(week) {
+      week.days.forEach(function(day) {
+        day.fill = getColorByLength(day.posts.length, maxCount);
+      })
+    })
+
+    return calendar;
+  }
+
+  function getIndexByDate(date) {
+    date = new Date(date);
+    var firstColumnLen = 7 - oneYearAgo.getDay();
+    var days = (date.getTime() - oneYearAgo.getTime()) / (1000 * 60 * 60 * 24);
+    var x = days > firstColumnLen ? Math.ceil((days - firstColumnLen) / 7) : 0;
+    var y = date.getDay();
+    return [x, y]
+  }
+
+  function getColorByLength(len, max) {
+    var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+    var colorsLen = colors.length;
+    var color = len ? colors[0] : colors[1]
+    var interval = max / colorsLen;
+    if (max < colorsLen) {
+      color = colors[len];
+    } else {
+      color = colors[Math.ceil(len / interval)];
+    }
+    return color;
+  }
+
+</script>
+

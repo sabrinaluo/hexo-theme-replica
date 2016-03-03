@@ -51,7 +51,7 @@ nav a:visited {
 .container {
   margin-left: auto;
   margin-right: auto;
-  width: 980px;
+  width: 1000px;
 }
 
 .left {
@@ -386,7 +386,7 @@ ul.social-network {
 /* recent post section */
 
 .recent-post {
-  width: 710px;
+  width: 730px;
   margin-bottom: 20px;
 }
 
@@ -573,10 +573,6 @@ article li {
   text-decoration: underline;
 }
 
-.post-graph {
-  width: 620px;
-}
-
 article code, article tt {
   padding: 0;
   padding-top: 0.2em;
@@ -753,4 +749,100 @@ pre .xml .cdata {
 .tag-list-count:after,
 .category-list-count:after {
   content: ')'
+}
+
+/* calendar */
+.post-calendar {
+  width: 730px;
+  margin-bottom: 20px;
+  float: right;
+}
+
+.month,
+.wday {
+  font-size: 9px;
+  fill: #ccc;
+}
+
+.day:hover,
+.day.active {
+  stroke-width: 1px;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.post-calendar .boxed-group {
+  float: right;
+  margin-bottom: 20px;
+}
+
+.calendar-footer {
+  padding: 15px 10px;
+  font-size: 10px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.calendar-legend {
+  float: right;
+}
+
+.calendar-legend ul {
+  display: inline-block;
+}
+
+.calendar-legend ul li {
+  width: 10px;
+  height: 10px;
+  float: left;
+  margin-left: 3px;
+}
+
+.calendar-graph {
+  width: 100%;
+  padding: 5px 0;
+}
+
+.calendar-graph svg {
+  padding-left: 5px;
+}
+
+.calendar-col {
+  float: left;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  height: 60px;
+  text-align: center;
+  width: 242px;
+  color: #767676;
+  font-size: 11px;
+}
+
+.calendar-col.mid {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.calendar-col-count {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.3em;
+  color: #333;
+}
+
+.contribution-list a {
+  font-weight: bold;
+}
+
+.contribution-list span {
+  color: #999;
+}
+
+.contribution-list li {
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+.contribution-list li:first-child {
+  border: none;
 }
