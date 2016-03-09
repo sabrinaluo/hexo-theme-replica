@@ -86,10 +86,10 @@
         Current streak
       </div>
       <div class="calendar-col-count">
-        {{currentStreak.count}}
+        {{currentStreak.count}} days
       </div>
       <div class="calendar-col-date">
-        Last contributed on {{currentStreak.relativeTime}}
+        Last contributed {{currentStreak.relativeTime}}
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@
   <div class="contribution-list">
     <ul>
       <li v-for="post in posts | filterBy selectedDate in 'date'">
-        <a>{{post.title}}
+        <a href="{{post.url}}">{{post.title}}
         </a>
         <span>{{post.date}}</span>
       </li>
@@ -112,16 +112,15 @@
 <%
 var dateFormat = 'YYYY-MM-DD';
 var postsArr = [];
-var oneYearAgo = new Date();
-oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+var today = moment().format('YYYY-MM-DD');
+var oneYearAgo = moment(today).subtract(1, 'years');
 
 site.posts.data.forEach(function(post) {
   if (post.date > oneYearAgo) {
     postsArr.push({
-      id: post._id,
-      date: post.date.toISOString().slice(0, 10),
+      date: post.date.format(dateFormat),
       title: post.title,
-      url: post.permlink
+      url: post.permalink
     });
   }
 });
@@ -134,62 +133,76 @@ var longestStreak = getLongestStreak(postsArr);
 var latestStreak = getLatestStreak(postsArr);
 
 function getLongestStreak(posts) {
-  var longest = 0;
-  var temp = 0;
-  var start = '';
-  var end = '';
+  if (!posts.length) return {count: 0, start: null, end: null};
+
+  var endTemp = 0;
+  var lenTemp = 1;
+  var endIndex = 0;
+  var lenMax = 1;
+
   for (var i = 0; i < posts.length - 1; i++) {
-    var date0 = moment(posts[i].date).format(dateFormat);
-    var date1 = moment(posts[i].date).add(1, 'days').format(dateFormat);
-    var date2 = moment(posts[i + 1].date).format(dateFormat);
+    var date0 = posts[i].date;
+    var date1 = posts[i + 1].date;
+    var isContinuousDates = moment(date1).diff(date0, 'days') < 2;
 
-    if (date1 === date2 || date0 === date2) {
-      temp++;
+    if (isContinuousDates) {
+      lenTemp++;
+      endTemp = i + 1;
     } else {
+      lenTemp = 1;
+    }
 
-      if (temp > longest) {
-        end = date0;
-      }
-      longest = Math.max(longest, temp);
-      temp = 0;
+    if (lenTemp > lenMax) {
+      endIndex = endTemp;
+      lenMax = lenTemp;
     }
   }
 
-  start = moment(end).subtract(longest - 1, 'days').format('MMM DD');
-  end = moment(end).format('MMM DD');
-
+  var startDate = posts[endIndex - lenMax + 1].date;
+  var endDate = posts[endIndex].date;
+  var count = moment(endDate).diff(startDate, 'days') + 1;
   return {
-    count: longest,
-    start: start,
-    end: end
+    count: count,
+    start: startDate,
+    end: endDate
   }
 }
 
 function getLatestStreak(posts) {
-  var streak = 0;
-  var start = '';
-  var end = '';
-
+  if (!posts.length) return {count: 0, start: null, end: null};
   posts.reverse();
+
+  var endTemp = 0;
+  var lenTemp = 1;
+  var endIndex = 0;
+  var lenMax = 1;
+
   for (var i = 0; i < posts.length - 1; i++) {
-    var date0 = moment(posts[i].date).format(dateFormat);
-    var date1 = moment(posts[i].date).subtract(1, 'days').format(dateFormat);
-    var date2 = moment(posts[i + 1].date).format(dateFormat);
-    if (date1 === date2 || date0 === date2) {
-      streak++;
+    var date0 = posts[i].date;
+    var date1 = posts[i + 1].date;
+    var isContinuousDates = moment(date0).diff(date1, 'days') < 2;
+
+    if (isContinuousDates) {
+      lenTemp++;
+      endTemp = i + 1;
     } else {
-      streak = 1;
-      end = date0;
+      lenTemp = 1;
       break;
+    }
+
+    if (lenTemp > lenMax) {
+      endIndex = endTemp;
+      lenMax = lenTemp;
     }
   }
 
-  start = moment(end).subtract(streak - 1, 'days').format(dateFormat);
-
+  var endDate = posts[endIndex - lenMax + 1].date;
+  var startDate = posts[endIndex].date;
+  var count = moment(endDate).diff(startDate, 'days') + 1;
   return {
-    count: streak,
-    start: start,
-    end: end
+    count: count,
+    start: startDate,
+    end: endDate
   }
 }
 %>
@@ -200,8 +213,8 @@ function getLatestStreak(posts) {
   var currentStreak = getCurrentStreak(latestStreak);
   currentStreak.relativeTime = moment(currentStreak.date).fromNow();
 
-  var oneYearAgo = new Date();
-  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+  var today = moment().format('YYYY-MM-DD');
+  var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
     return new Date(post.date) > oneYearAgo;
   });
@@ -222,13 +235,17 @@ function getLatestStreak(posts) {
       currentStreak: currentStreak,
       dateRange: dateRange
     },
+    created: function() {
+      var isToday = moment().diff(currentStreak.date, 'days') === 0;
+      this.selectedDate = isToday ? currentStreak.date : 'none';
+    },
     methods: {},
     computed: {}
   });
 
   function getCurrentStreak(latestStreak) {
-    var today = new Date().toISOString().slice(0, 10);
-    var count = latestStreak.end === today ? latestStreak.count : 0;
+    var isToday = moment().diff(latestStreak.end, 'days') === 0;
+    var count = isToday ? latestStreak.count : 0;
 
     return {
       count: count,
@@ -290,12 +307,13 @@ function getLatestStreak(posts) {
   }
 
   function getIndexByDate(date) {
-    date = new Date(date);
-    var firstColumnLen = 7 - oneYearAgo.getDay();
-    var days = (date.getTime() - oneYearAgo.getTime()) / (1000 * 60 * 60 * 24);
-    var x = days > firstColumnLen ? Math.ceil((days - firstColumnLen) / 7) : 0;
-    var y = date.getDay();
-    return [x, y]
+    date = moment(date);
+    var firstColumnLen = 7 - oneYearAgo.day();
+    var days = date.diff(oneYearAgo, 'days');
+
+    var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
+    var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
+    return [x, y];
   }
 
   function getColorByLength(len, max) {
