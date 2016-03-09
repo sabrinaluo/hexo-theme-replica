@@ -846,3 +846,29 @@ pre .xml .cdata {
 .contribution-list li:first-child {
   border: none;
 }
+
+.svg-tip{
+  width: 180px;
+  position: absolute;
+  z-index: 999;
+  padding: 10px;
+  color: #bbb;
+  text-align: center;
+  background: rgba(0,0,0,0.8);
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.svg-tip:after{
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  box-sizing: border-box;
+  margin: 0 0 0 -5px;
+  content: " ";
+  border: 5px solid transparent;
+  border-top-color: rgba(0,0,0,0.8);
+}

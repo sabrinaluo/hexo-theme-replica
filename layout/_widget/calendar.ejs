@@ -4,12 +4,13 @@
       Contributions
     </h3>
     <div class="calendar-graph">
-      <svg width="721" height="110">
+      <svg width="721" height="110" @mouseout="mouseoverDate=null">
         <g transform="translate(20, 20)">
           <g v-for="week in calendar" :transform="week.transform">
             <rect v-for="day in week.days"
                   :y="day.y" :fill="day.fill"
                   @click="selectedDate=day.date"
+                  @mouseover="mouseoverDate=day.date"
                   :class="{active:selectedDate===day.date}"
                   data-count="{{day.posts.length}}"
                   data-date="{{day.date}}"
@@ -45,6 +46,11 @@
           </text>
         </g>
       </svg>
+      <div class="svg-tip svg-tip-one-line"
+           v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
+        <strong>{{svgtip.text}}</strong> on
+        {{moment(mouseoverDate).format('MMM DD, YYYY')}}
+      </div>
     </div>
     <div class="calendar-footer">
       <div class="calendar-legend">
@@ -229,18 +235,41 @@ function getLatestStreak(posts) {
     el: '#calendar',
     data: {
       posts: posts,
-      selectedDate: 'none',
+      selectedDate: null,
       calendar: calendar,
       longestStreak: longestStreak,
       currentStreak: currentStreak,
-      dateRange: dateRange
+      dateRange: dateRange,
+      mouseoverDate: null,
+      moment: moment
     },
     created: function() {
       var isToday = moment().diff(currentStreak.date, 'days') === 0;
       this.selectedDate = isToday ? currentStreak.date : 'none';
     },
     methods: {},
-    computed: {}
+    computed: {
+      svgtip: function() {
+        var date = this.mouseoverDate;
+        var display = date ? 'block' : 'none';
+        if (date) {
+          var coordinator = getIndexByDate(date);
+          var x = coordinator[0];
+          var y = coordinator[1];
+          var len = this.calendar[x].days[y].posts.length;
+          var text = len ? len + ' Posts' : 'No Contribution';
+          var left = coordinator[0] * 13 - 69 + 'px';
+          coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
+          var top = coordinator[1] * 13 + 12 + 'px';
+        }
+        return {
+          text: text,
+          left: left,
+          top: top,
+          display: display
+        }
+      }
+    }
   });
 
   function getCurrentStreak(latestStreak) {
@@ -252,7 +281,6 @@ function getLatestStreak(posts) {
       date: latestStreak.end
     }
   }
-
 
   function getCalendar(posts) {
     // raw calendar
