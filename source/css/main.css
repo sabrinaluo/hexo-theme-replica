@@ -4,8 +4,8 @@ html, body, form {
 }
 
 body {
-  font-family: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif;
-  font-size: 13px;
+  font-family: "Microsoft Yahei", 微软雅黑, Helvetica, arial, sans-serif;
+  font-size: 62.5%;
   line-height: 1.4;
   color: #333;
   width: 100%;
@@ -486,16 +486,17 @@ a:hover .post-title {
 
 article {
   padding: 45px;
-  font-size: 16px;
+  font-size: 1.4em;
   line-height: 1.6;
   word-wrap: break-word;
 }
 
-article {
-}
-
 article > *:first-child {
   margin-top: 0 !important;
+}
+
+article > *:last-child {
+  margin-bottom: 0 !important;
 }
 
 article h1,
@@ -512,9 +513,9 @@ article h6 {
 
 article h1 {
   border-bottom: 1px solid #eee;
-  font-size: 36px;
+  font-size: 2.25em;
   line-height: 1.2;
-  padding-bottom: 5px;
+  padding-bottom: 0.3em;
 }
 
 article h2 {
@@ -545,7 +546,6 @@ article h6 {
 article p {
   margin-top: 0;
   margin-bottom: 16px;
-  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -558,6 +558,10 @@ article ol {
 
 article ul {
   list-style: disc;
+}
+
+article ul ul {
+  list-style: circle;
 }
 
 article ol {
@@ -580,7 +584,8 @@ article code, article tt {
   margin: 0;
   font-size: 85%;
   background-color: rgba(0, 0, 0, 0.04);
-  border-radius: 3px
+  border-radius: 3px;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 article code:before, article code:after, article tt:before, article tt:after {
@@ -603,7 +608,7 @@ article pre > code {
   word-break: normal;
   white-space: pre;
   background: transparent;
-  border: 0
+  border: 0;
 }
 
 article .highlight {
@@ -613,10 +618,10 @@ article .highlight {
 article .highlight pre, article pre {
   padding: 16px;
   overflow: auto;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.45;
   background-color: #f7f7f7;
-  border-radius: 3px
+  border-radius: 3px;
 }
 
 figure {
@@ -630,6 +635,7 @@ figure {
   padding: 0.5em;
   color: #333;
   background: #f8f8f8;
+  border-radius: 3px;
 }
 
 .gutter pre {
@@ -756,6 +762,7 @@ pre .xml .cdata {
   width: 730px;
   margin-bottom: 20px;
   float: right;
+  font-size: 1.3em;
 }
 
 .month,
@@ -777,10 +784,9 @@ pre .xml .cdata {
 }
 
 .calendar-footer {
-  padding: 15px 10px;
-  font-size: 10px;
-  color: #ccc;
-  margin-bottom: 15px;
+  padding: 8px 14px 13px 12px;
+  color: #767676;
+  font-size: 11px;
 }
 
 .calendar-legend {
@@ -847,20 +853,20 @@ pre .xml .cdata {
   border: none;
 }
 
-.svg-tip{
+.svg-tip {
   width: 180px;
   position: absolute;
   z-index: 999;
   padding: 10px;
   color: #bbb;
   text-align: center;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 3px;
   font-size: 12px;
   white-space: nowrap;
 }
 
-.svg-tip:after{
+.svg-tip:after {
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -870,5 +876,10 @@ pre .xml .cdata {
   margin: 0 0 0 -5px;
   content: " ";
   border: 5px solid transparent;
-  border-top-color: rgba(0,0,0,0.8);
+  border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.boxed-group .fa-lock {
+  line-height: 20px;
+  font-size: 17px;
 }

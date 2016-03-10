@@ -2,6 +2,7 @@
   <div class="boxed-group">
     <h3>
       Contributions
+      <span><i class="fa fa-lock"></i></span>
     </h3>
     <div class="calendar-graph">
       <svg width="721" height="110" @mouseout="mouseoverDate=null">
@@ -53,6 +54,8 @@
       </div>
     </div>
     <div class="calendar-footer">
+      <span class="text-muted">Summary of posts in last year. <a href="/">Learn
+          how we count contributions.</a></span>
       <div class="calendar-legend">
         <span>Less</span>
         <ul class="legend">
@@ -169,8 +172,8 @@ function getLongestStreak(posts) {
   var count = moment(endDate).diff(startDate, 'days') + 1;
   return {
     count: count,
-    start: startDate,
-    end: endDate
+    start: moment(startDate).format('MMMM D'),
+    end: moment(endDate).format('MMMM D')
   }
 }
 
@@ -227,8 +230,8 @@ function getLatestStreak(posts) {
   var calendar = getCalendar(posts);
 
   var dateRange = {
-    start: moment(oneYearAgo).format('MMM DD, YYYY'),
-    end: moment().format('MMM DD, YYYY')
+    start: moment(oneYearAgo).format('MMM D, YYYY'),
+    end: moment().format('MMM D, YYYY')
   }
 
   var app = new Vue({
@@ -346,8 +349,8 @@ function getLatestStreak(posts) {
 
   function getColorByLength(len, max) {
     var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
-    var colorsLen = colors.length;
-    var color = len ? colors[0] : colors[1]
+    var colorsLen = colors.length - 1;
+    var color = len ? colors[0] : colors[1];
     var interval = max / colorsLen;
     if (max < colorsLen) {
       color = colors[len];

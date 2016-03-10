@@ -33,7 +33,7 @@ describe('getLongestStreak', function() {
   });
 
   it('should 3, when 3 days streak, and one post each day', function() {
-    var posts = [{date: '2016-03-01'}, {date: '2016-03-03'}, {date: '2016-03-04'}, {date: '2016-03-05'},{date:'2016-03-08'}];
+    var posts = [{date: '2016-03-01'}, {date: '2016-03-03'}, {date: '2016-03-04'}, {date: '2016-03-05'}, {date: '2016-03-08'}];
     getLongestStreak(posts).should.deep.equal({
       count: 3,
       start: '2016-03-03',
@@ -91,6 +91,30 @@ describe('getLatestStreak', function() {
       start: '2016-03-07',
       end: '2016-03-08'
     });
+  });
+
+});
+
+describe('getColorByLength', function() {
+  var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+  it('should #eee, when max=0', function() {
+    getColorByLength(0, 0).should.equal(colors[0]);
+  });
+
+  it('should return correct color when max<5', function() {
+    getColorByLength(0, 3).should.equal(colors[0]);
+    getColorByLength(1, 3).should.equal(colors[1]);
+    getColorByLength(2, 4).should.equal(colors[2]);
+    getColorByLength(4, 4).should.equal(colors[4]);
+  });
+
+  it('should return correct color when max>5', function() {
+    getColorByLength(0, 10).should.equal(colors[0]);
+    getColorByLength(1, 10).should.equal(colors[1]);
+    getColorByLength(2, 10).should.equal(colors[1]);
+    getColorByLength(4, 10).should.equal(colors[2]);
+    getColorByLength(8, 10).should.equal(colors[4]);
+    getColorByLength(5, 6).should.equal(colors[4]);
   });
 
 });
@@ -178,4 +202,23 @@ function getLatestStreak(posts) {
     start: startDate,
     end: endDate
   }
+}
+
+/**
+ *
+ * @param len
+ * @param max
+ * @returns {string}
+ */
+function getColorByLength(len, max) {
+  var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+  var colorsLen = colors.length - 1;
+  var color = len ? colors[0] : colors[1];
+  var interval = max / colorsLen;
+  if (max < colorsLen) {
+    color = colors[len];
+  } else {
+    color = colors[Math.ceil(len / interval)];
+  }
+  return color;
 }

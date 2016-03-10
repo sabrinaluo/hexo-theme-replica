@@ -1,7 +1,7 @@
 <%
 var posts = site.posts.data;
 var oldestPostDate = posts.length ? posts[posts.length - 1].date : {date: moment()};
-var startFrom = oldestPostDate.format('Do MMM YYYY');
+var startFrom = oldestPostDate.format('MMM D, YYYY');
 var recentPosts = page.posts.data.slice(0, 5);
 var github = config.social.github || theme.social.github;
 var weibo = config.social.weibo || theme.social.weibo;
