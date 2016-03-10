@@ -2,10 +2,11 @@
   <div class="container">
     <a href="<%= config.root %>" class="site-logo"><i class="fa fa-github"></i></a>
     <div class="site-search">
-      <form>
+      <form onsubmit="return search()">
         <label class="form-control">
           <span class="scope-badge">This website</span>
-          <input type="text" placeholder="Search">
+          <input id="query" type="text" placeholder="Search" value="">
+          <span class="scope-badge clear-search"> x </span>
         </label>
       </form>
     </div>

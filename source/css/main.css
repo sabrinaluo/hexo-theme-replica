@@ -883,3 +883,22 @@ pre .xml .cdata {
   line-height: 20px;
   font-size: 17px;
 }
+
+/* hide google search box */
+#___gcse_0{
+ visibility: hidden;
+}
+
+.clear-search{
+  z-index: 999;
+  text-align: center;
+  position: absolute;
+  right: 2px;
+  width: 10px;
+  cursor: pointer;
+}
+
+.clear-search:hover{
+  font-weight: bold;
+  font-size: 15px;
+}
