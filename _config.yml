@@ -1,13 +1,21 @@
-# navbar menu
-location: 
-email: 
-menu:
- archives: true
- tags: true
- categories: true
+# left-side user profile
+location:
+email:
 social:
   github:
   weibo:
   linkedin:
 
+# navbar menu
+menu:
+ archives: true
+ tags: true
+ categories: true
+
 rss_dir: atom.xml
+
+# widget
+ga: # google analytics tracking code UA-XXXXXXX-X
+baidutongji: # baidutongji tracking code
+duoshuo: # duoshuo username
+gsc: # google custom search code

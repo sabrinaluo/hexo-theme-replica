@@ -20,7 +20,9 @@
       <% if(theme.menu.tags){ %>
       <li><a href="<%= url_for(theme.tag_dir) %>">Tags</a></li>
       <% } %>
+      <% if(theme.rss_dir){ %>
       <li><a href="<%= url_for(theme.rss_dir) %>">RSS</a></li>
+      <% } %>
     </ul>
   </div>
 </nav>

@@ -1,6 +1,7 @@
+<% var GCS = config.gcs || theme.gcs; if(GCS){ %>
 <script>
   (function() {
-    var cx = '015579750388200492852:dnpv83myu4a';
+    var cx = '<%= GCS %>';
     var gcse = document.createElement('script');
     gcse.type = 'text/javascript';
     gcse.async = true;
@@ -11,4 +12,4 @@
   })();
 </script>
 <gcse:search></gcse:search>
-
+<% } %>
