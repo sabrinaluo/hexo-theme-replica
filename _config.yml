@@ -1,4 +1,5 @@
 # left-side user profile
+avatar: # by default https://octodex.github.com/images/baracktocat.jpg
 location:
 email:
 social:

@@ -9,9 +9,10 @@ var linkedin = config.social.linkedin || theme.social.linkedin;
 var location = config.location || theme.location;
 var email = config.email || theme.email;
 var url = config.url;
+var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images/baracktocat.jpg'
 %>
 <div class="column about-me  read-more">
-  <img class="arvatar" src="https://octodex.github.com/images/baracktocat.jpg">
+  <img class="avatar" src="<%= avatar %>">
   <h1 class="blog-info">
     <span class="blog-info-title">
       <%= theme.title %>
