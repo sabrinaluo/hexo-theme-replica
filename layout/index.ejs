@@ -1,5 +1,5 @@
 <%
-var posts = site.posts.data;
+var posts = page.posts.data;
 var oldestPostDate = posts.length ? posts[posts.length - 1].date : {date: moment()};
 var startFrom = oldestPostDate.format('MMM D, YYYY');
 var recentPosts = page.posts.data.slice(0, 5);
