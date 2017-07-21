@@ -10,6 +10,9 @@ Issue Welcomed! :stuck_out_tongue:
 - [ ] Get gravatar url by email
 - [ ] Disqus support
 
+Github itself is not responsive, it actually has two different layout (html) for mobile and desktop, which makes it difficult to replicate into responsive layout
+
+
 ## Setup
 **Install**
 ```

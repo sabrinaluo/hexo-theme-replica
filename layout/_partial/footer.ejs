@@ -5,10 +5,18 @@ var linkedin = config.social.linkedin || theme.social.linkedin;
 var location = config.location || theme.location;
 var url = config.url;
 %>
-<footer class="container clearfix">
-  <ul class="social-link">
+<div class="footer-wrapper container">
+<footer class="footer">
+  <div class="footer-theme-info float-right">
+    Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+    by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+  </div>
+  
+  <a href="<%= config.url %>" class="footer-logo">
+  <i class="fa fa-github"></i>
+  </a>
+<ul class="footer-social-link float-left">
     <li>© 2016 <%= config.author %></li>
-
     <li><a href="<%= url %>">Home</a></li>
     <% if(github){ %>
     <li><a href="<%= github %>">Github</a></li>
@@ -18,11 +26,5 @@ var url = config.url;
     <li><a href="<%= linkedin %>">Linkedin</a></li>
     <% } %>
   </ul>
-  <div class="theme-info">
-    Theme <a
-            href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-    by <a
-            href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
-  </div>
-  <a href="<%= config.url %>" class="site-logo"><i class="fa fa-github"></i></a>
-</footer>
+  </footer>
+</div>

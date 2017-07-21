@@ -1,0 +1,52 @@
+@import "./_variables"
+@import "./base"
+@import "./navbar"
+@import "./header"
+@import "./code"
+@import "./post"
+@import "./footer"
+
+
+// google search
+#google-search
+  display: table-cell
+  width: 100%
+
+  #___gcse_0
+    input[name="search"]
+      background: none !important
+      color: $white
+      border: none
+      min-height: 30px
+      background: none
+      padding: 0 8px !important
+      vertical-align: middle
+      outline: none
+      color: inherit
+      font-size: inherit
+      text-indent: 0 !important
+      &:focus
+        outline-width: 0
+
+  .gsc-control-cse
+    background-color: transparent
+    border: none
+    padding: 0
+  
+  .gsc-search-button, .gsc-clear-button
+    display: none
+    
+  .gsc-input
+    padding-right: 0 !important
+
+  .gsc-input-box
+    border:none
+    background: none
+    &-focus
+      box-shadow: none
+
+  .gsib_a
+    padding: 0
+
+  .gsib_b
+    display: none

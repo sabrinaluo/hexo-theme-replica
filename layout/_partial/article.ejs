@@ -1,15 +1,19 @@
 <%
-var publishDate = page.date.format('YYYY-MM-DD HH:mm:ss')
+var publishDate = page.date.format('YYYYMMDD')
+var publishTime = page.date.format('MMM DD, YYYY, h:mm:ss A')
 %>
-<div class="boxed-group" xmlns="http://www.w3.org/1999/html">
+<div class="post-container container">
   <h3>
-    <i class="fa fa-user"></i>
-     <a><%= config.author || '' %></a>
-    <span>
-      <i class="fa fa-pencil"></i> Published: <%= publishDate %>
+    <i class="fa fa-user-o"></i>
+    <%= config.author || '' %>
+
+    <span class="post-date float-right" title="<%= publishTime %>">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment("<%= publishDate %>", YYYYMMDD).fromNow()}}
     </span>
   </h3>
-  <article>
+
+  <article class="post-content">
     <h1><%= page.title || 'Untitle' %></h1>
     <%- page.content %>
   </article>

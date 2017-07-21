@@ -1,28 +1,44 @@
-<nav>
-  <div class="container">
-    <a href="<%= config.root %>" class="site-logo"><i class="fa fa-github"></i></a>
-    <div class="site-search">
-      <form onsubmit="return search()">
-        <label class="form-control">
-          <span class="scope-badge">This website</span>
-          <input id="query" type="text" placeholder="Search" value="">
-          <span class="scope-badge clear-search"> x </span>
-        </label>
-      </form>
+<%
+var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images/baracktocat.jpg'
+%>
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="<%= config.root %>" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search"><gcse:search></gcse:search></div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        <% if(theme.menu.archives){ %>
+        <li><a href="<%= url_for(theme.archive_dir) %>">Archives</a></li>
+        <% } %>
+        <% if(theme.menu.categories){ %>
+        <li><a href="<%= url_for(theme.category_dir) %>">Categories</a></li>
+        <% } %>
+        <% if(theme.menu.tags){ %>
+        <li><a href="<%= url_for(theme.tag_dir) %>">Tags</a></li>
+        <% } %>
+        <% if(theme.rss_dir){ %>
+        <li><a href="<%= url_for(theme.rss_dir) %>" target="_blank">RSS</a></li>
+        <% } %>
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="<%= avatar %>"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
     </div>
-    <ul>
-      <% if(theme.menu.archives){ %>
-      <li><a href="<%= url_for(theme.archive_dir) %>">Archives</a></li>
-      <% } %>
-      <% if(theme.menu.categories){ %>
-      <li><a href="<%= url_for(theme.category_dir) %>">Categories</a></li>
-      <% } %>
-      <% if(theme.menu.tags){ %>
-      <li><a href="<%= url_for(theme.tag_dir) %>">Tags</a></li>
-      <% } %>
-      <% if(theme.rss_dir){ %>
-      <li><a href="<%= url_for(theme.rss_dir) %>">RSS</a></li>
-      <% } %>
-    </ul>
   </div>
 </nav>

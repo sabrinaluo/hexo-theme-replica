@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="<%= config.language || '' %>">
 <%- partial('_partial/head') %>
-<body>
+<body id="replica-app">
 <%- partial('_partial/navbar') %>
-<main class="container">
+<div class="main-container">
   <%- body %>
-</main>
+</div>
 <%- partial('_partial/footer') %>
 <%- partial('_partial/script') %>
 </body>

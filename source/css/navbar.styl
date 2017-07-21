@@ -1,0 +1,107 @@
+.navbar-wrapper
+  position: relative
+
+.navbar
+  padding-top: 12px
+  padding-bottom: 12px
+  color: rgba(255, 255, 255, 0.75)
+  background-color: #24292e
+  &-logo
+    color: $white !important
+    font-size: 37.32px
+    float: left
+    margin: -13px 15px -15px -2px
+    white-space: nowrap
+  &-nav
+    padding: 0
+    margin: 0
+    list-style: none
+    li
+      float: left
+    a
+      display: block
+      padding: 5px 8px
+      font-weight: 600
+      line-height: 20px
+      color: rgba(255, 255, 255, 0.75)
+      &:hover
+        color: $white
+        text-decoration: none
+
+  &-search
+    width: 300px
+    margin-right: 10px
+    font-size: 13px
+    &-form
+      display: table
+      color: #fff
+      background-color: rgba(255, 255, 255, 0.125)
+      border-radius: 3px
+
+    label
+      display: table-cell
+      width: 1%
+      padding: 0 8px
+      color: rgba(255, 255, 255, 0.75)
+      border-right: 1px solid #282e34
+      font-size: inherit
+      white-space: nowrap
+      vertical-align: middle
+      line-height: 28px
+      &:hover
+        background-color: rgba(255, 255, 255, 0.12)
+        color: #fff
+
+    input
+      display: table-cell
+      width: 100%
+      border: none
+      min-height: 30px
+      background: none
+      padding: 0 8px
+      vertical-align: middle
+      outline: none
+      color: inherit
+      font-size: inherit
+      &:focus
+        outline-width: 0
+
+.user-nav
+  a
+    padding: 5px 10px
+    font-size: 16px
+    margin: 0 0 -10px 0
+    &:hover
+      color: $white
+
+  li:last-child
+    margin-right: -10px
+
+  &-logo
+    a
+      line-height: 20px
+    img
+      width: 20px
+      height: 20px
+      vertical-align: middle
+      margin-top: -3px
+
+  &-notification
+    position: relative
+
+  &-unread
+    position: absolute
+    top: 0
+    right: 4px
+    z-index: 2
+    width: 14px
+    height: 14px
+    color: $white
+    text-align: center
+    background-image: linear-gradient(rgb(84, 163, 255), rgb(0, 110, 237))
+    background-clip: padding-box
+    border-width: 2px
+    border-style: solid
+    border-color: rgb(36, 41, 46)
+    border-image: initial
+    border-radius: 50%  
