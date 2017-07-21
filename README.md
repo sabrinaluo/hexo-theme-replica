@@ -25,8 +25,6 @@ git pull
 ```
 
 ## Available Widgets
-多说
-
 百度统计
 
 Google Analytics
