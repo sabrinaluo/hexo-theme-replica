@@ -1,7 +1,17 @@
-<%- partial('_partial/header') %>
-<% if(page.title === 'tags'){ %>
-<%- list_tags() %>
-<% } %>
-<% if(page.title === 'categories'){ %>
-<%- list_categories() %>
-<% } %>
+<div class="container-lg">
+  <%- partial('_partial/intro') %>
+
+  <div class="blog-detail">
+    <%- partial('_partial/navbar-secondary', {nav_selected: page.title}) %>
+
+    <div class="body-secondary">
+
+      <% if(page.title === 'tags'){ %>
+      <%- list_tags() %>
+      <% } %>
+      <% if(page.title === 'categories'){ %>
+      <%- list_categories() %>
+      <% } %>
+    </div>
+  </div>
+</div>

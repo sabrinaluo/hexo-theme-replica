@@ -1,0 +1,53 @@
+<%
+var github = config.social.github || theme.social.github;
+var weibo = config.social.weibo || theme.social.weibo;
+var linkedin = config.social.linkedin || theme.social.linkedin;
+var location = config.location || theme.location;
+var email = config.email || theme.email;
+var url = config.url;
+var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images/baracktocat.jpg'
+%>
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="<%= avatar %>">
+    <div class="user-name">
+      <div class="blog-title"><%= theme.title %></div>
+      <div class="blog-author"><%= theme.author %></div>
+    </div>
+    <div class="blog-description">
+      <%= theme.description %>
+    </div>
+  </div>
+
+  <ul class="user-detail">
+    <% if(location){ %>
+    <li>
+      <i class="fa fa-map-marker"></i>
+      <%= location %>
+    </li>
+    <% }if(email){ %>
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:<%= email %>"><%= email %></a>
+    </li>
+    <% } %>
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="<%= url %>"><%= url %></a>
+    </li>
+  </ul>
+
+  <div class="social-media">
+    <h4>Social Media</h4>
+    <ul>
+      <% if(github){ %>
+      <li class="social-media-item"><a href="<%= github %>" target="_blank"><i class="fa fa-github"></i></a></li>
+      <% } if(weibo){ %>
+      <li class="social-media-item"><a href="<%= weibo %>" target="_blank"><i class="fa fa-weibo"></i></a></li>
+      <% } if(linkedin){ %>
+      <li class="social-media-item"><a href="<%= linkedin %>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <% } %>
+    </ul>
+  </div>
+</div>

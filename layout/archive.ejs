@@ -1,14 +1,44 @@
 <%
 var posts = page.posts.data;
+var nav_selected = page.path.split('/')[0];
 %>
-<%- partial('_partial/header') %>
-<% posts.forEach(function(post){ %>
-<div class="archive">
-<h2><a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a></h2>
-<p class="read-more">
-  <%= post.content
-          .replace(/<[^>]*>/ig, ' ')
-          .substr(0, 200) %>
-</p>
+
+<div class="container-lg">
+  <%- partial('_partial/intro') %>
+
+  <div class="blog-detail">
+    <%- partial('_partial/navbar-secondary', {nav_selected: nav_selected}) %>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        <% posts.forEach(function(post){
+          var category = 'Uncategorized'
+          post.categories.forEach(function(cat, index) {
+            if (index === 0) {
+              category = cat.name
+            }
+          })
+        %>
+        <li class="archive-list-item">
+          <h2><a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a></h2>
+          <p>
+            <%= post.content
+                    .replace(/<[^>]*>/ig, ' ')
+                    .substr(0, 150) %>...
+          </p>
+          <ul class="tag-list clearfix">
+            <% post.tags.forEach(function(tag){ %>
+            <li class="tag-list-item"><%= tag.name %></li>
+            <% }) %>
+          </ul>
+          <div class="post-info">
+            <span><i class="fa fa-folder-open"></i> <%= category %> </span>
+            <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
+            <span>Published {{moment("<%= post.date.format('YYYYMMDD') %>", 'YYYYMMDD').fromNow()}}</span>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
 </div>
-<% }) %>

@@ -1,34 +1,44 @@
-<header>
-  <h2>
-    <i class="fa fa-book text-muted"></i>
-    <a href="<%= config.root %>"><%= config.title %></a>
-    <% if(page.title === "tags"){ %>
-    /<a href="<%= url_for(theme.tag_dir) %>"> Tags</a>
-    <% } %>
-    <% if(page.title === "categories"){ %>
-    /<a href="<%= url_for(theme.category_dir) %>"> Categories</a>
-    <% } %>
-  </h2>
-  <div class="header-btn">
-    <div class="btn-group">
-      <a href="<%= url_for(theme.archive_dir) %>" class="btn btn-group-left"><i
-                class="fa fa-file-text"></i> Posts </a>
-      <a href="<%= url_for(theme.archive_dir) %>"
-         class="btn btn-group-right"> <%= site.posts.length %> </a>
-    </div>
+<header class="header-wrapper">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="<%= url_for(theme.archive_dir) %>" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="<%= url_for(theme.archive_dir) %>"
+           class="header-toolbar-right"> <%= site.posts.length %> </a>
+      </li>
+      <li>
+        <a href="<%= url_for(theme.tag_dir) %>" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="<%= url_for(theme.tag_dir) %>"
+           class="header-toolbar-right"> <%= site.tags.length %> </a>
+      </li>
+      <li>
+        <a href="<%= url_for(theme.category_dir) %>" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="<%= url_for(theme.category_dir) %>"
+           class="header-toolbar-right"> <%= site.categories.length %> </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="<%= config.root %>"><%= config.title %></a>
+      <% if(page.title === "tags"){ %>
+      /<a href="<%= url_for(theme.tag_dir) %>">Tags</a>
+      <% } %>
+      <% if(page.title === "categories"){ %>
+      /<a href="<%= url_for(theme.category_dir) %>">Categories</a>
+      <% } %>
+    </h2>
+  </div>
 
-    <div class="btn-group">
-      <a href="<%= url_for(theme.tag_dir) %>" class="btn btn-group-left"><i
-                class="fa fa-tags"></i> Tags </a>
-      <a href="<%= url_for(theme.tag_dir) %>"
-         class="btn btn-group-right"> <%= site.tags.length %> </a>
-    </div>
-
-    <div class="btn-group">
-      <a href="<%= url_for(theme.category_dir) %>" class="btn btn-group-left"><i
-                class="fa fa-list-ul"></i> Categories </a>
-      <a href="<%= url_for(theme.category_dir) %>"
-         class="btn btn-group-right"> <%= site.categories.length %> </a>
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
     </div>
   </div>
 </header>

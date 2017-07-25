@@ -1,102 +1,38 @@
 <%
 var posts = page.posts.data;
-var oldestPostDate = posts.length ? posts[posts.length - 1].date : {date: moment()};
-var startFrom = oldestPostDate.format('MMM D, YYYY');
-var recentPosts = page.posts.data.slice(0, 5);
-var github = config.social.github || theme.social.github;
-var weibo = config.social.weibo || theme.social.weibo;
-var linkedin = config.social.linkedin || theme.social.linkedin;
-var location = config.location || theme.location;
-var email = config.email || theme.email;
-var url = config.url;
-var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images/baracktocat.jpg'
+var recentPosts = page.posts.data.slice(0, 6);
 %>
-<div class="column about-me  read-more">
-  <img class="avatar" src="<%= avatar %>">
-  <h1 class="blog-info">
-    <span class="blog-info-title">
-      <%= theme.title %>
-    </span>
-    <span class="blog-info-author">
-      <%= theme.author %>
-    </span>
-  </h1>
-  <ul class="details">
-    <% if(location){ %>
-    <li><i class="fa fa-map-marker"></i><%= location %></li>
-    <% }if(email){ %>
-    <li>
-      <i class="fa fa-envelope-o"></i><a
-              href="mailto:<%= email %>"><%= email %></a>
-    </li>
-    <% } %>
-    <li>
-      <i class="fa fa-link"></i><a href="<%= url %>"><%= url %></a>
-    </li>
-    <li><i class="fa fa-clock-o"></i>Started from <%= startFrom %>
-    </li>
-  </ul>
 
-  <ul class="stat">
-    <li>
-      <a href="<%= url_for(theme.archive_dir) %>">
-        <div class="stat-count"><%= site.posts.length %></div>
-        <div class="stat-name">Posts</div>
-      </a>
-    </li>
-    <li>
-      <a href="<%= url_for(theme.tag_dir) %>">
-        <div class="stat-count"><%= site.tags.length %></div>
-        <div class="stat-name">Tags</div>
-      </a>
-    </li>
-    <li>
-      <a href="<%= url_for(theme.category_dir) %>">
-        <div class="stat-count"><%= site.categories.length %></div>
-        <div class="stat-name">Categories</div>
-      </a>
-    </li>
-  </ul>
+<div class="container-lg">
+  <%- partial('_partial/intro') %>
 
-  <ul class="social-network">
-    <% if(github){ %>
-    <li>
-      <a href="<%= github %>"><i class="fa fa-github"></i></a>
-    </li>
-    <% } if(weibo){ %>
-    <li>
-      <a href="<%= weibo %>"><i class="fa fa-weibo"></i></a>
-    </li>
-    <% } if(linkedin){ %>
-    <li>
-      <a href="<%= linkedin %>"> <i class="fa fa-linkedin"></i></a>
-    </li>
-    <% } %>
-  </ul>
-</div>
+  <div class="blog-detail">
+    <%- partial('_partial/navbar-secondary', {nav_selected: 0}) %>
 
-<div class="column recent-post read-more">
-  <div class="boxed-group">
-    <h3>
-      Recent Post
-    </h3>
-    <ul>
-      <% recentPosts.forEach(function(post){ %>
-      <li>
-        <a href="<%= url_for(post.path) %>">
-          <span class="icon-left"><i class="fa fa-book"></i></span>
-          <span class="post-title read-more"><%= post.title || 'Untitled' %></span>
-          <span class="icon-right"><i class="fa fa-star"></i></span>
-          <span class="subtext read-more">
-            <%= post.content
-                    .replace(/<[^>]*>/ig, ' ')
-                    .substr(0, 100) %>
-          </span>
-        </a>
-      </li>
-      <% }) %>
-    </ul>
+    <div class="body-secondary">
+      <p class="right-title">Recent post</p>
+      <ul class="recent-post clearfix">
+        <% recentPosts.forEach(function(post){ %>
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a>
+            </h5>
+            <p class="post-description text-ellipsis">
+              <%= post.content
+                      .replace(/<[^>]*>/ig, ' ')
+                      .substr(0, 50) %>
+            </p>
+            <p class="post-info">
+              <span><i class="fa fa-folder-open"></i> <%= post.categories.data[0] ? post.categories.data[0].name : 'Uncategorized' %></span>
+              <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
+            </p>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+
+    </div>
   </div>
 </div>
-
-<%- partial('_widget/calendar') %>
