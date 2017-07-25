@@ -7,6 +7,216 @@
 @import "./footer"
 
 
+// left bar
+.blog-intro
+  width: 25%
+  padding-right: 16px
+  float: left
+  @media (max-width: $screen-sm)
+    width: 100%
+    padding-left: 16px
+    padding-right: 16px
+  .avatar
+    width: 230px
+    @media (max-width: $screen-sm)
+      width: 110px
+      display: block
+      float: left
+  &-user
+    @media (max-width: $screen-sm)
+      padding-top: 15px
+      padding-bottom: 10px
+  .user-detail
+    border-top: 1px solid #eee
+    padding: 16px 0
+    list-style: none
+    margin: 0
+    font-size: 14px
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    li
+      padding-top: 4px
+    i
+      display: inline-block
+      width: 20px
+      text-align: center
+
+  .social-media
+    border-top: 1px solid #eee
+    padding: 16px 0
+    h4
+      font-size: 16px
+      margin: 0 0 4px 0
+    ul
+      padding: 0
+      list-style: none
+      margin: 0
+    &-item
+      float: left
+      margin-right: 5px
+      font-size: 25px
+      width: 35px
+      height: 35px
+      background: #F0F0F0
+      border-radius: 3px
+      text-align: center
+      a
+        line-height: 35px
+
+
+.user-name
+  padding: 16px 0
+
+.blog-title
+  font-size: 26px
+  line-height: 30px
+  font-weight: 600
+
+.blog-author
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  color: #666;
+
+.blog-description
+  margin-bottom: 12px
+  color: #6a737d
+  font-size: 14px
+  @media (max-width: $screen-sm)
+    clear: both
+
+.blog-detail
+  width: 75%
+  padding-left: 8px
+  float: left
+  @media (max-width: $screen-sm)
+    width: 100%
+    padding-left: 16px
+    padding-right: 16px
+  &-nav
+    border-bottom: 1px solid #d1d5da
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+      li
+        float: left
+        padding: 0
+        height: 60px
+        color: #586069
+        &.selected
+          border-bottom: 2px solid #e36209
+          a, a:hover, a:link, a:visited
+            color: #24292e
+        a, a:hover, a:link, a:visited
+          text-decoration: none
+          color: #586069
+          padding: 0 20px
+          display: inline-block
+          line-height 60px
+
+.counter
+  background: #eee
+  border-radius: 20px
+  padding: 2px 5px
+  display: inline-block
+  font-weight:600
+  line-height: 1
+  font-size: 12px
+
+.right-title
+  margin-top: 24px
+  margin-bottom: 8px
+  font-size: 16px
+
+.user-info
+  padding-right: 16px
+  &-avatar
+    width: 230px
+    max-height: 230px
+    vertical-align: middle
+    display: inline-block
+    overflow: hidden
+
+.recent-post
+  list-style: none
+  padding: 0
+  margin: 0 0 24px 0
+  &-item
+    border: 1px solid #d1d5da
+    border-radius: 3px
+    width: 354px
+    display: flex
+    padding: 16px
+    margin-bottom: 16px
+    height: 118px
+    float: left
+    &:nth-child(odd)
+      margin-right: 5px
+    &:nth-child(even)
+      margin-left: 5px
+
+.post-title
+  margin: 0
+  line-height: 21px
+  max-width: 325px
+  i
+    padding-right: 5px
+
+.post-description
+  margin: 8px 0 16px 0
+  font-size: 12px
+  color: #586069
+  height: 20px
+  max-width: 325px
+
+.post-info
+  margin: 0
+  color: #586069
+  font-size: 12px
+  span
+    margin-right: 16px
+
+// right bar
+.archive-list
+  list-style: none
+  padding: 0
+  &-item
+    padding: 24px 0
+    border-bottom: 1px solid #e1e4e8
+    h2
+      margin: 0
+      font-size: 20px
+      font-weight: 600
+    p
+      font-size: 14px
+      color: #586069
+      margin: 6px 0 8px 0
+    .post-info
+      margin-top: 8px
+      font-size: 12px
+
+.tag-list
+  padding: 4px 0
+  list-style: none
+  margin: 0
+  &-item
+    float: left
+    margin: 0 0.5em 0.5em 0
+    padding: 0.3em 0.9em
+    background: #f1f8ff
+    border-radius: 3px
+    color: #0366d6
+    font-size: 12px
+    &:hover
+      background: #ddeeff
+.tag-list-count
+  padding-left: 5px
+  font-weight: bold
+
 // google search
 #google-search
   display: table-cell
@@ -32,10 +242,10 @@
     background-color: transparent
     border: none
     padding: 0
-  
+
   .gsc-search-button, .gsc-clear-button
     display: none
-    
+
   .gsc-input
     padding-right: 0 !important
 

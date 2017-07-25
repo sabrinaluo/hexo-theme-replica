@@ -31,6 +31,9 @@ a:hover
   &::after
     clear: both
 
+.width-full
+  width: 100% !important
+
 .container
   width: 980px
   margin: 0 auto
@@ -39,3 +42,34 @@ a:hover
     content: ""
   &::after
     clear: both
+
+.container-lg
+  max-width: 1012px
+  padding-left: 16px
+  padding-right: 16px
+  margin: 24px auto 0 auto
+  &::before, &::after
+    display: table
+    content: ""
+  &::after
+    clear: both
+  @media (max-width: $screen-sm)
+    padding: 0
+    margin: 0
+
+.list-none
+  list-style: none
+
+
+.col
+  &-3, &-9
+    float: left
+  &-3
+    width: 25%
+  &-9
+    width: 75%
+
+.text-ellipsis
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap

@@ -41,9 +41,13 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
   <div class="social-media">
     <h4>Social Media</h4>
     <ul>
-      <li class="social-media-item"><a href=""><i class="fa fa-github"></i></a></li>
-      <li class="social-media-item"><a href=""><i class="fa fa-weibo"></i></a></li>
-      <li class="social-media-item"><a href=""><i class="fa fa-linkedin"></i></a></li>
+      <% if(github){ %>
+      <li class="social-media-item"><a href="<%= github %>" target="_blank"><i class="fa fa-github"></i></a></li>
+      <% } if(weibo){ %>
+      <li class="social-media-item"><a href="<%= weibo %>" target="_blank"><i class="fa fa-weibo"></i></a></li>
+      <% } if(linkedin){ %>
+      <li class="social-media-item"><a href="<%= linkedin %>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <% } %>
     </ul>
   </div>
 </div>
