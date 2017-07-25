@@ -1,0 +1,17 @@
+<%
+var isOverview = ['tags', 'archives', 'categories'].indexOf(nav_selected) === -1
+%>
+<nav class="blog-detail-nav">
+  <ul class="clearfix">
+    <li class="<%= isOverview ? 'selected' : '' %>">
+      <a href="<%= config.root %>">Overview</a></li>
+    <li class="<%= nav_selected === 'archives' ? 'selected' : '' %>">
+      <a href="<%= url_for(theme.archive_dir) %>">Posts <span class="counter"><%= site.posts.length %></span></a>
+    </li>
+    <li class="<%= nav_selected === 'categories' ? 'selected' : '' %>">
+      <a href="<%= url_for(theme.category_dir) %>">Categories <span
+                class="counter"><%= site.categories.length %></span></a></li>
+    <li class="<%= nav_selected === 'tags' ? 'selected' : '' %>">
+      <a href="<%= url_for(theme.tag_dir) %>">Tags <span class="counter"><%= site.tags.length %></span></a></li>
+  </ul>
+</nav>
