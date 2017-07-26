@@ -5,39 +5,44 @@ Mainly for developers to write tech blog.  [Click here to view the demo site](ht
 
 Issue Welcomed! :stuck_out_tongue:
 
-## Todo
-- [ ] Responsive layout
-- [ ] Get gravatar url by email
-- [ ] Disqus support
+## Version
+#### v1.0  
+Github UI before 2017, which is using the grey navbar
 
-Github itself is not responsive, it actually has two different layout (html) for mobile and desktop, which makes it difficult to replicate into responsive layout
-
+#### v2.0 (in progress)  
+Github UI in 2017, which is using the black navbar
 
 ## Setup
-**Install**
+#### Install
 ```
 git clone git@github.com:sabrinaluo/hexo-theme-replica.git themes/replica
 ```
-**Configure**
+
+#### Configure
 Set `theme: replica` in `_config.yml` (the one in your root folder)
 
-**Update**
+#### Update
 ```
 cd themes/replica
 git pull
 ```
 
+In case you want a different version
+```
+cd themes/replica
+git checkout v1.0
+```
+
 ## Available Widgets
-百度统计
-
-Google Analytics
-
+~~多说~~ (Duoshuo stopped the service since June, 2017)  
+百度统计  
+Google Analytics  
 Google Custom Search Engine[^1]
 
 ## License
 The MIT License[^2]
 
-Copyright (c) 2015-2016 Hiitea <luohaojing@gmail.com>
+Copyright (c) 2015-2017 Hiitea <luohaojing@gmail.com>
 
 [^1]: https://cse.google.com/
 [^2]: https://opensource.org/licenses/MIT
