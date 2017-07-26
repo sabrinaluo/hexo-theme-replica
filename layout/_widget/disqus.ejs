@@ -1,0 +1,19 @@
+<% var DISQUS = config.disqus; if(DISQUS){ %>
+<div class="container">
+  <div id="disqus_thread"></div>
+</div>
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "<%= page.permalink %>";
+    this.page.identifier = <%= page.date.unix() %>;
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://<%= DISQUS %>.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<% } %>
