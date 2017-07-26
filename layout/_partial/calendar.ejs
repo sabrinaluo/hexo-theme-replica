@@ -1,104 +1,71 @@
-<div class="column post-calendar" id="calendar">
-  <div class="boxed-group">
+<div class="calendar-container" id="calendar">
+  <div class="calendar">
     <h3>
-      Contributions
-      <span><i class="fa fa-lock"></i></span>
+      {{posts.length}} contributions in the last year
     </h3>
-    <div class="calendar-graph">
-      <svg width="721" height="110" @mouseout="mouseoverDate=null">
-        <g transform="translate(20, 20)">
-          <g v-for="week in calendar" :transform="week.transform">
-            <rect v-for="day in week.days"
-                  :y="day.y" :fill="day.fill"
-                  @click="selectedDate=day.date"
-                  @mouseover="mouseoverDate=day.date"
-                  :class="{active:selectedDate===day.date}"
-                  data-count="{{day.posts.length}}"
-                  data-date="{{day.date}}"
-                  class="day" width="11" height="11"
-            ></rect>
+    <div class="calendar-graph-container">
+      <div class="calendar-graph">
+        <svg width="676" height="104" @mouseout="mouseoverDate=null">
+          <g transform="translate(16, 20)">
+            <g v-for="week in calendar" :transform="week.transform">
+              <rect v-for="day in week.days"
+                    :x="day.x"
+                    :y="day.y"
+                    :fill="day.fill"
+                    @click="selectedDate=day.date"
+                    @mouseover="mouseoverDate=day.date"
+                    :class="{active:selectedDate===day.date}"
+                    data-count="{{day.posts.length}}"
+                    data-date="{{day.date}}"
+                    class="day" width="10" height="10"
+              ></rect>
+            </g>
+
+            <text v-for="month in monthLabels"
+                  :x="month.x"
+                  y="-5"
+                  class="month">{{month.text}}
+            </text>
+
+
+            <text text-anchor="start" class="wday" dx="-14" dy="8"
+                  style="display: none;">S
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="32"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="57"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="81"
+                  style="display: none;">S
+            </text>
           </g>
-          <text x="0" y="-5" class="month">Mar</text>
-          <text x="65" y="-5" class="month">Apr</text>
-          <text x="117" y="-5" class="month">May</text>
-          <text x="182" y="-5" class="month">Jun</text>
-          <text x="234" y="-5" class="month">Jul</text>
-          <text x="286" y="-5" class="month">Aug</text>
-          <text x="351" y="-5" class="month">Sep</text>
-          <text x="403" y="-5" class="month">Oct</text>
-          <text x="455" y="-5" class="month">Nov</text>
-          <text x="520" y="-5" class="month">Dec</text>
-          <text x="572" y="-5" class="month">Jan</text>
-          <text x="637" y="-5" class="month">Feb</text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="9"
-                style="display: none;">S
-          </text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="22">M</text>
-          <text text-anchor="middle" class="wday" dx="-10" dy=" 35"
-                style="display: none;">T
-          </text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="48">W</text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="61"
-                style="display: none;">T
-          </text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="74">F</text>
-          <text text-anchor="middle" class="wday" dx="-10" dy="87"
-                style="display: none;">S
-          </text>
-        </g>
-      </svg>
-      <div class="svg-tip svg-tip-one-line"
-           v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
-        <strong>{{svgtip.text}}</strong> on
-        {{moment(mouseoverDate).format('MMM DD, YYYY')}}
+        </svg>
+        <div class="svg-tip svg-tip-one-line"
+             v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
+          <strong>{{svgtip.text}}</strong> on
+          {{moment(mouseoverDate).format('MMM DD, YYYY')}}
+        </div>
       </div>
-    </div>
-    <div class="calendar-footer">
-      <span class="text-muted">Summary of posts in last year. <a href="/">Learn
-          how we count contributions.</a></span>
-      <div class="calendar-legend">
-        <span>Less</span>
-        <ul class="legend">
-          <li style="background-color: #eee"></li>
-          <li style="background-color: #d6e685"></li>
-          <li style="background-color: #8cc665"></li>
-          <li style="background-color: #44a340"></li>
-          <li style="background-color: #1e6823"></li>
-        </ul>
-        <span>More</span>
-      </div>
-    </div>
-    <div class="calendar-col left">
-      <div class="calendar-col-title">
-        Contributions in last year
-      </div>
-      <div class="calendar-col-count">
-        {{posts.length}} total
-      </div>
-      <div class="calendar-col-date">
-        {{dateRange.start}} - {{dateRange.end}}
-      </div>
-    </div>
-    <div class="calendar-col mid">
-      <div class="calendar-col-title">
-        Longest streak
-      </div>
-      <div class="calendar-col-count">
-        {{longestStreak.count}} days
-      </div>
-      <div class="calendar-col-date">
-        {{longestStreak.start}} - {{longestStreak.end}}
-      </div>
-    </div>
-    <div class="calendar-col right">
-      <div class="calendar-col-title">
-        Current streak
-      </div>
-      <div class="calendar-col-count">
-        {{currentStreak.count}} days
-      </div>
-      <div class="calendar-col-date">
-        Last contributed {{currentStreak.relativeTime}}
+      <div class="calendar-footer clearfix">
+      <span>
+        <a href="#">Learn how we count contributions.</a>
+      </span>
+        <div class="calendar-legend">
+          <span>Less</span>
+          <ul class="legend">
+            <li style="background-color: #eee"></li>
+            <li style="background-color: #d6e685"></li>
+            <li style="background-color: #8cc665"></li>
+            <li style="background-color: #44a340"></li>
+            <li style="background-color: #1e6823"></li>
+          </ul>
+          <span>More</span>
+        </div>
       </div>
     </div>
   </div>
@@ -134,96 +101,16 @@ site.posts.data.forEach(function(post) {
 postsArr.sort(function(a, b) {
   return new Date(a.date) - new Date(b.date);
 });
-
-var longestStreak = getLongestStreak(postsArr);
-var latestStreak = getLatestStreak(postsArr);
-
-function getLongestStreak(posts) {
-  if (!posts.length) return {count: 0, start: null, end: null};
-
-  var endTemp = 0;
-  var lenTemp = 1;
-  var endIndex = 0;
-  var lenMax = 1;
-
-  for (var i = 0; i < posts.length - 1; i++) {
-    var date0 = posts[i].date;
-    var date1 = posts[i + 1].date;
-    var isContinuousDates = moment(date1).diff(date0, 'days') < 2;
-
-    if (isContinuousDates) {
-      lenTemp++;
-      endTemp = i + 1;
-    } else {
-      lenTemp = 1;
-    }
-
-    if (lenTemp > lenMax) {
-      endIndex = endTemp;
-      lenMax = lenTemp;
-    }
-  }
-
-  var startDate = posts[endIndex - lenMax + 1].date;
-  var endDate = posts[endIndex].date;
-  var count = moment(endDate).diff(startDate, 'days') + 1;
-  return {
-    count: count,
-    start: moment(startDate).format('MMMM D'),
-    end: moment(endDate).format('MMMM D')
-  }
-}
-
-function getLatestStreak(posts) {
-  if (!posts.length) return {count: 0, start: null, end: null};
-  posts.reverse();
-
-  var endTemp = 0;
-  var lenTemp = 1;
-  var endIndex = 0;
-  var lenMax = 1;
-
-  for (var i = 0; i < posts.length - 1; i++) {
-    var date0 = posts[i].date;
-    var date1 = posts[i + 1].date;
-    var isContinuousDates = moment(date0).diff(date1, 'days') < 2;
-
-    if (isContinuousDates) {
-      lenTemp++;
-      endTemp = i + 1;
-    } else {
-      lenTemp = 1;
-      break;
-    }
-
-    if (lenTemp > lenMax) {
-      endIndex = endTemp;
-      lenMax = lenTemp;
-    }
-  }
-
-  var endDate = posts[endIndex - lenMax + 1].date;
-  var startDate = posts[endIndex].date;
-  var count = moment(endDate).diff(startDate, 'days') + 1;
-  return {
-    count: count,
-    start: startDate,
-    end: endDate
-  }
-}
 %>
 <script>
   var posts = <%- JSON.stringify(postsArr) %>;
-  var longestStreak = <%- JSON.stringify(longestStreak) %>;
-  var latestStreak = <%- JSON.stringify(latestStreak) %>;
-  var currentStreak = getCurrentStreak(latestStreak);
-  currentStreak.relativeTime = moment(currentStreak.date).fromNow();
-
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
     return new Date(post.date) > oneYearAgo;
   });
+  var monthLabels = [];
+  var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var calendar = getCalendar(posts);
 
   var dateRange = {
@@ -237,15 +124,13 @@ function getLatestStreak(posts) {
       posts: posts,
       selectedDate: null,
       calendar: calendar,
-      longestStreak: longestStreak,
-      currentStreak: currentStreak,
       dateRange: dateRange,
       mouseoverDate: null,
-      moment: moment
+      moment: moment,
+      monthLabels: monthLabels
     },
     created: function() {
-      var isToday = moment().diff(currentStreak.date, 'days') === 0;
-      this.selectedDate = isToday ? currentStreak.date : 'none';
+      this.selectedDate = 'none';
     },
     methods: {},
     computed: {
@@ -257,10 +142,10 @@ function getLatestStreak(posts) {
           var x = coordinator[0];
           var y = coordinator[1];
           var len = this.calendar[x].days[y].posts.length;
-          var text = len ? len + ' Posts' : 'No Contribution';
-          var left = coordinator[0] * 13 - 69 + 'px';
+          var text = len ? len + ' contributions' : 'No contributions';
+          var left = coordinator[0] * 12 - 37 + 'px';
           coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
-          var top = coordinator[1] * 13 + 12 + 'px';
+          var top = coordinator[1] * 12 + 12 - 32 + 'px';
         }
         return {
           text: text,
@@ -271,16 +156,6 @@ function getLatestStreak(posts) {
       }
     }
   });
-
-  function getCurrentStreak(latestStreak) {
-    var isToday = moment().diff(latestStreak.end, 'days') === 0;
-    var count = isToday ? latestStreak.count : 0;
-
-    return {
-      count: count,
-      date: latestStreak.end
-    }
-  }
 
   function getCalendar(posts) {
     // raw calendar
@@ -302,10 +177,19 @@ function getLatestStreak(posts) {
       }
 
       calendar[calendar.length - 1].days.push({
-        y: day * 13,
+        x: 14 - calendar.length,
+        y: day * 12,
         date: date.toISOString().slice(0, 10),
         posts: []
       });
+
+      if (day === 0 && date.getDate() < 8) {
+        monthLabels.push({
+          x: 14 - calendar.length + x,
+          text: monthName[date.getMonth() - 1]
+        })
+      }
+
       date.setDate(date.getDate() + 1);
     }
 
