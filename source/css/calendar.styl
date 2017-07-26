@@ -1,0 +1,79 @@
+.calendar
+  &-container h3
+    font-size: 16px
+    font-weight normal
+    margin-bottom 8px
+    margint-top: 0
+
+  &-graph
+    padding: 5px 0 0
+    text-align: center
+    height: 100%
+    position relative
+    &-container
+      margin-bottom: 32px
+      padding: 8px 0
+      border: 1px solid #d1d5da
+      border-radius: 3px
+
+  .month
+    fill: #767676
+    font-size: 9px
+  .wday
+    fill: #767676
+    font-size: 9px
+
+  &-footer
+    padding: 0 16px 4px 16px
+    margin: 4px 16px 0 16px
+    font-size: 11px
+
+  &-legend
+    color: #586069
+    float: right
+    ul
+      display: inline-block
+      list-style: none
+      padding: 0
+      margin: 0
+      li
+        float: left
+        width: 10px
+        height: 10px
+
+.contribution-list
+  ul
+    list-style: none
+    padding: 0
+
+.svg-tip
+  width: 200px // so that tooltip can get a stable absolute position
+  position: absolute
+  z-index: 999
+  padding: 10px
+  color: #bbb
+  text-align: center
+  background: rgba(0, 0, 0, 0.8)
+  border-radius: 3px
+  font-size: 11px
+  white-space: nowrap
+  strong
+    color: #dfe2e5
+
+.svg-tip:after
+  position: absolute
+  bottom: -10px
+  left: 50%
+  width: 5px
+  height: 5px
+  box-sizing: border-box
+  margin: 0 0 0 -5px
+  content: " "
+  border: 5px solid transparent
+  border-top-color: rgba(0, 0, 0, 0.8)
+
+.day:hover,
+.day.active 
+  stroke-width: 1px
+  stroke: #000
+  shape-rendering: crispEdges
