@@ -14,13 +14,30 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
     <div class="user-name">
       <div class="blog-title"><%= theme.title %></div>
       <div class="blog-author"><%= theme.author %></div>
+        <ul class="user-detail mobile-only">
+    <% if(location){ %>
+    <li>
+      <i class="fa fa-map-marker"></i>
+      <%= location %>
+    </li>
+    <% }if(email){ %>
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:<%= email %>"><%= email %></a>
+    </li>
+    <% } %>
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="<%= url %>"><%= url %></a>
+    </li>
+  </ul>
     </div>
     <div class="blog-description">
       <%= theme.description %>
     </div>
   </div>
 
-  <ul class="user-detail">
+  <ul class="user-detail desktop-only">
     <% if(location){ %>
     <li>
       <i class="fa fa-map-marker"></i>
@@ -38,7 +55,7 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
     </li>
   </ul>
 
-  <div class="social-media">
+  <div class="social-media desktop-only">
     <h4>Social Media</h4>
     <ul>
       <% if(github){ %>

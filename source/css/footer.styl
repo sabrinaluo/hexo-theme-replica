@@ -7,14 +7,27 @@
   line-height: 1.5;
   color: #586069;
   border-top: 1px solid #eaecef
+  @media (max-width: $screen-sm)
+    padding: 15px
+    color: #959da5
+    text-align: center
   &-social-link
     margin: 0 0 0 -10px
     padding: 0
     list-style: none
+    float: left
+    @media (max-width: $screen-sm)
+      float: none
     li
       display: inline-block
       line-height: 16px
       margin-left: 10px
+
+  &-theme-info
+    float: right
+    @media (max-width: $screen-sm)
+      float: none
+
   &-logo
     position: absolute
     top: 30px
@@ -27,3 +40,10 @@
       color: #c6cbd1
     &:hover
       color: #959da5
+    @media (max-width: $screen-sm)
+      margin: 0
+      display: block
+      position: relative
+      top: 0
+      left: 0
+      font-size: 37px

@@ -6,16 +6,11 @@ var location = config.location || theme.location;
 var url = config.url;
 %>
 <div class="footer-wrapper container">
-  <footer class="footer">
-    <div class="footer-theme-info float-right">
-      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
-    </div>
-
+  <footer class="footer clearfix">
     <a href="<%= config.url %>" class="footer-logo">
       <i class="fa fa-github"></i>
     </a>
-    <ul class="footer-social-link float-left">
+    <ul class="footer-social-link">
       <li>© 2016 <%= config.author %></li>
       <li><a href="<%= url %>">Home</a></li>
       <% if(github){ %>
@@ -26,5 +21,9 @@ var url = config.url;
       <li><a href="<%= linkedin %>">Linkedin</a></li>
       <% } %>
     </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
   </footer>
 </div>

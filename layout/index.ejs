@@ -19,12 +19,12 @@ var recentPosts = page.posts.data.slice(0, 6);
               <i class="fa fa-bars"></i>
               <a href="<%= url_for(post.path) %>"><%= post.title || 'Untitled' %></a>
             </h5>
-            <p class="post-description text-ellipsis">
+            <p class="post-description text-ellipsis desktop-only">
               <%= post.content
                       .replace(/<[^>]*>/ig, ' ')
                       .substr(0, 50) %>
             </p>
-            <p class="post-info">
+            <p class="post-info desktop-only">
               <span><i class="fa fa-folder-open"></i> <%= post.categories.data[0] ? post.categories.data[0].name : 'Uncategorized' %></span>
               <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
             </p>

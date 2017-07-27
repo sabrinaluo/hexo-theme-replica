@@ -8,8 +8,12 @@ body
   line-height: 1.5
   color: $grey-dark
   font-family: $font-family-main
-  min-width: 1020px //todo
+  min-width: 1020px
   word-wrap: break-word;
+  @media (max-width: $screen-sm)
+    width: 100%
+    min-width: 100%
+    background-color: #fafbfc
 
 a, a:link, a:visited
   color: $blue-bright
@@ -42,6 +46,8 @@ a:hover
     content: ""
   &::after
     clear: both
+  @media (max-width: $screen-sm)
+    width: 100%
 
 .container-lg
   max-width: 1012px
@@ -56,7 +62,8 @@ a:hover
   @media (max-width: $screen-sm)
     padding: 0
     margin: 0
-
+    width: 100%
+  
 .list-none
   list-style: none
 
@@ -73,3 +80,11 @@ a:hover
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap
+
+.mobile-only
+  @media (min-width: $screen-sm)
+    display: none
+
+.desktop-only
+  @media (max-width: $screen-sm)
+    display: none

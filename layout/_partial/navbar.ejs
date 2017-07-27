@@ -6,7 +6,7 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
     <div class="container clearfix">
       <a href="<%= config.root %>" class="navbar-logo"><i class="fa fa-github"></i></a>
 
-      <div class="navbar-search float-left">
+      <div class="navbar-search float-left desktop-only">
         <div class="navbar-search-form">
           <label for="gsc-i-id1">This website</label>
           <div id="google-search">
@@ -30,7 +30,7 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
         <% } %>
       </ul>
 
-      <ul class="navbar-nav user-nav float-right">
+      <ul class="navbar-nav user-nav float-right desktop-only">
         <li class="user-nav-notification">
           <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
         </li>

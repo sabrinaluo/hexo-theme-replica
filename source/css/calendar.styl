@@ -1,9 +1,12 @@
 .calendar
-  &-container h3
-    font-size: 16px
-    font-weight normal
-    margin-bottom 8px
-    margint-top: 0
+  &-container
+    @media (max-width: $screen-sm)
+      display: none
+    h3
+      font-size: 16px
+      font-weight normal
+      margin-bottom 8px
+      margint-top: 0
 
   &-graph
     padding: 5px 0 0

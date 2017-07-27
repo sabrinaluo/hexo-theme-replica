@@ -1,7 +1,7 @@
 <%
 var isOverview = ['tags', 'archives', 'categories'].indexOf(nav_selected) === -1
 %>
-<nav class="blog-detail-nav">
+<nav class="blog-detail-nav desktop-only">
   <ul class="clearfix">
     <li class="<%= isOverview ? 'selected' : '' %>">
       <a href="<%= config.root %>">Overview</a></li>
