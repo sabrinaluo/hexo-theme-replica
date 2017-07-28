@@ -3,6 +3,11 @@
     border: $border-grey
     border-radius: 3px
     margin-bottom: 30px
+    @media (max-width: $screen-sm)
+      border-radius: 0
+      border-right: none
+      border-left: none
+      border-top: none
     >h3
       background-color: $grey-lighter
       margin: 0
@@ -11,6 +16,8 @@
       line-height: 17px
       border-bottom: 1px solid $grey-border
       border-radius(3px 3px 0 0)
+      @media (max-width: $screen-sm)
+        padding: 15px
   &-date
     font-size: 13px
     line-height: 20px
@@ -18,6 +25,9 @@
     font-weight: normal
 
   &-content
+    @media (max-width: $screen-sm)
+      padding: 15px
+      font-size: 15px
     padding: 45px
     word-wrap: break-word
     font-family: $font-family-main

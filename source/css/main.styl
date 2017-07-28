@@ -7,7 +7,6 @@
 @import "./footer"
 @import "./calendar"
 
-
 // left bar
 .blog-intro
   width: 25%
@@ -17,16 +16,19 @@
     width: 100%
     padding-left: 16px
     padding-right: 16px
+    background-color: #fafbfc
+    border-bottom: 1px solid #e1e4e8
   .avatar
     width: 230px
     @media (max-width: $screen-sm)
       width: 110px
       display: block
       float: left
+      margin-right: 15px
   &-user
     @media (max-width: $screen-sm)
       padding-top: 15px
-      padding-bottom: 10px
+      padding-bottom: 15px
   .user-detail
     border-top: 1px solid #eee
     padding: 16px 0
@@ -37,8 +39,17 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     vertical-align: top;
+    @media (max-width: $screen-sm)
+      padding: 0
+      margin-top: 7px
+      margin-left: -2px
+      border: none
+      font-size: 12px
+      line-height: 1.8
     li
       padding-top: 4px
+      @media (max-width: $screen-sm)
+        padding: 0
     i
       display: inline-block
       width: 20px
@@ -75,11 +86,17 @@
 
 .user-name
   padding: 16px 0
+  @media (max-width: $screen-sm)
+    padding: 0
 
 .blog-title
   font-size: 26px
   line-height: 30px
   font-weight: 600
+  @media (max-width: $screen-sm)
+    margin: 0
+    font-size: 16px
+    line-height: 1.5
 
 .blog-author
   font-size: 20px;
@@ -87,6 +104,9 @@
   font-weight: 300;
   line-height: 24px;
   color: #666;
+  @media (max-width: $screen-sm)
+    margin: 0
+    font-size: 12px
 
 .blog-description
   margin-bottom: 12px
@@ -94,6 +114,8 @@
   font-size: 14px
   @media (max-width: $screen-sm)
     clear: both
+    font-size: 12px
+    margin: 8px 0 0 0
 
 .blog-detail
   width: 75%
@@ -152,6 +174,10 @@
   list-style: none
   padding: 0
   margin: 0 0 24px 0
+  @media (max-width: $screen-sm)
+    width: 100%
+    border: 1px solid #d1d5da
+    border-radius: 3px
   &-item
     border: 1px solid #d1d5da
     border-radius: 3px
@@ -161,15 +187,33 @@
     margin-bottom: 16px
     height: 118px
     float: left
+    @media (max-width: $screen-sm)
+      width: 100%
+      float: none
+      border: none
+      height: auto
+      margin: 0
+      padding: 14px
+      border-top: 1px solid #d1d5da
+
+      &:first-child
+        border-top: none
+
     &:nth-child(odd)
       margin-right: 5px
+      @media (max-width: $screen-sm)
+        magrin: 0
     &:nth-child(even)
       margin-left: 5px
+      @media (max-width: $screen-sm)
+        margin: 0
 
 .post-title
   margin: 0
   line-height: 21px
   max-width: 325px
+  @media (max-width: $screen-sm)
+    white-space: normal
   i
     padding-right: 5px
 
@@ -270,3 +314,7 @@
 
   .gsib_b
     display: none
+
+.disqus-container
+  @media (max-width: $screen-sm)
+    padding: 0 15px
