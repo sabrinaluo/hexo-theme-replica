@@ -34,7 +34,7 @@ var nav_selected = page.path.split('/')[0];
           <div class="post-info">
             <span><i class="fa fa-folder-open"></i> <%= category %> </span>
             <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
-            <span>Published {{moment("<%= post.date.format('YYYYMMDD') %>", 'YYYYMMDD').fromNow()}}</span>
+            <span>Published {{moment(<%= post.date.valueOf() %>).fromNow()}}</span>
           </div>
         </li>
         <% }) %>
