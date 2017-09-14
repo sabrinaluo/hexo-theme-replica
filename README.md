@@ -147,4 +147,6 @@ Copyright (c) 2015-2017 Hiitea <luohaojing@gmail.com>
 [^2]: https://opensource.org/licenses/MIT
 
 ## Buy me coffee :yum:
+BTC: 19U6USzi7WaFmY3DTkgn67EzYpTqZPNwRG
+
 [![Alipay](http://7xow88.com1.z0.glb.clouddn.com/alip.jpg?imageView2/3/w/150/)](http://7xow88.com1.z0.glb.clouddn.com/alip.jpg)
