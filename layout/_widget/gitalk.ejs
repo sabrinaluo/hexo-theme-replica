@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<div class='container' id="gitalk-container"></div>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '<%= config.gitalk.client_id %>',
+        clientSecret: '<%= config.gitalk.client_secret %>',
+        repo: '<%= config.gitalk.repo %>',
+        owner: '<%= config.gitalk.owner %>',
+        admin: ['<%= config.gitalk.owner %>'],
+        distractionFreeMode: true,
+    })
+    gitalk.render('gitalk-container')
+</script>

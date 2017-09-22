@@ -18,4 +18,8 @@ var publishTimestamp = page.date.valueOf();
   </article>
 </div>
 
-<%- partial('_widget/disqus') %>
+<% if (config.gitalk ) { %>
+    <%- partial('_widget/gitalk') %>
+<% }else{ %>
+    <%- partial('_widget/disqus') %>
+<% } %>
