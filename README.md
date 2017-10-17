@@ -8,10 +8,10 @@ Issues & Contributions are welcome! :stuck_out_tongue:
 
 ## Version
 #### v1.0  
-Github UI before 2017, which is using the grey navbar
+Github UI before 2017, which uses the grey navbar
 
 #### v2.0 (in progress)  
-Github UI in 2017, which is using the black navbar
+Github UI in 2017, which uses the black navbar
 
 ## Setup
 #### Install
@@ -21,10 +21,13 @@ git clone git@github.com:sabrinaluo/hexo-theme-replica.git themes/replica
 
 #### Configure
 Set `theme: replica` in `_config.yml` (the one in your root folder)
-**Modifying `your_blog/themes/replica/_config.yml` directly is not recommended, it's better to configure your site through `your_blog/_config.yml`.**
 
-Here is a sample of `my_blog/_config.yml`
-```
+**PLEASE NOTE** 
+Modifying `blog_root/themes/replica/_config.yml` directly is **NOT** recommended.  
+It's suggested to configure your site through `blog_root/_config.yml` **(root folder).**
+
+Here is a sample of `blog_root/_config.yml`
+``` yml
 # Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
@@ -120,15 +123,15 @@ social:
 ```
 
 #### Update
-```
+``` bash
 cd themes/replica
 git pull
 ```
 
 In case you want the old version with grey navbar
-```
+``` bash
 cd themes/replica
-git checkout v1.0
+git checkout 1.0 # AKA `git checkout -b 1.0 origin/1.0`
 ```
 
 ## Available Widgets
