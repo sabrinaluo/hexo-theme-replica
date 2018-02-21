@@ -2,7 +2,7 @@
 Github style replication for hexo theme. 
 
 Just in case you are working in the office but suddenly have some genius ideas. :two_hearts:  
-[Click here to view the demo site](http://sabrinaluo.com/tech)
+[Click here to view the demo site](//sabrinaluo.github.io/tech)
 
 Issues & Contributions are welcome! :stuck_out_tongue:
 
