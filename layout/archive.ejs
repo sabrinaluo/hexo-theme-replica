@@ -12,10 +12,10 @@ var nav_selected = page.path.split('/')[0];
     <div class="body-secondary">
       <ul class="archive-list">
         <% posts.forEach(function(post){
-          var category = 'Uncategorized'
+          var category;
           post.categories.forEach(function(cat, index) {
             if (index === 0) {
-              category = cat.name
+              category = cat
             }
           })
         %>
@@ -28,11 +28,17 @@ var nav_selected = page.path.split('/')[0];
           </p>
           <ul class="tag-list clearfix">
             <% post.tags.forEach(function(tag){ %>
-            <li class="tag-list-item"><%= tag.name %></li>
+            <a href="<%= url_for(tag.path) %>"><li class="tag-list-item"><%= tag.name %></li></a>
             <% }) %>
           </ul>
           <div class="post-info">
-            <span><i class="fa fa-folder-open"></i> <%= category %> </span>
+            <span>
+              <% if(category){ %>
+              <a href="<%= url_for(category.path) %>"><i class="fa fa-folder-open"></i> <%= category.name %></a>
+              <% } else { %>
+              <i class="fa fa-folder-open"></i> <%= 'Uncategorized' %>
+              <% } %>
+            </span>
             <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
             <span>Published {{moment(<%= post.date.valueOf() %>).fromNow()}}</span>
           </div>

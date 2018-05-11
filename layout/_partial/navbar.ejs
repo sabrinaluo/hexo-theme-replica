@@ -26,7 +26,7 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
         <li><a href="<%= url_for(theme.tag_dir) %>">Tags</a></li>
         <% } %>
         <% if(theme.rss_dir){ %>
-        <li><a href="<%= url_for(theme.rss_dir) %>" target="_blank">RSS</a></li>
+        <li class="desktop-only"><a href="<%= url_for(theme.rss_dir) %>" target="_blank">RSS</a></li>
         <% } %>
       </ul>
 
