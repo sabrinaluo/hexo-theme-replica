@@ -27,7 +27,7 @@ var recentPosts = page.posts.data.slice(0, 6);
             <p class="post-info desktop-only">
               <span>
                 <% if(post.categories.data[0]){ %>
-                  <a href="<%= url_for(post.categories.data[0].path) %>"><i class="fa fa-folder-open"></i> <%= post.categories.data[0].name %></a>
+                  <a class="category-link" href="<%= url_for(post.categories.data[0].path) %>"><i class="fa fa-folder-open"></i> <%= post.categories.data[0].name %></a>
                 <% } else { %>
                   <i class="fa fa-folder-open"></i> <%= 'Uncategorized' %>
                 <% } %>

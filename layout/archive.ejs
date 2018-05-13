@@ -28,13 +28,13 @@ var nav_selected = page.path.split('/')[0];
           </p>
           <ul class="tag-list clearfix">
             <% post.tags.forEach(function(tag){ %>
-            <a href="<%= url_for(tag.path) %>"><li class="tag-list-item"><%= tag.name %></li></a>
+            <li class="tag-list-item"><a href="<%= url_for(tag.path) %>"><%= tag.name %></a></li>
             <% }) %>
           </ul>
           <div class="post-info">
             <span>
               <% if(category){ %>
-              <a href="<%= url_for(category.path) %>"><i class="fa fa-folder-open"></i> <%= category.name %></a>
+              <a class="category-link" href="<%= url_for(category.path) %>"><i class="fa fa-folder-open"></i> <%= category.name %></a>
               <% } else { %>
               <i class="fa fa-folder-open"></i> <%= 'Uncategorized' %>
               <% } %>
