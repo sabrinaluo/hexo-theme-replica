@@ -25,7 +25,13 @@ var recentPosts = page.posts.data.slice(0, 6);
                       .substr(0, 50) %>
             </p>
             <p class="post-info desktop-only">
-              <span><i class="fa fa-folder-open"></i> <%= post.categories.data[0] ? post.categories.data[0].name : 'Uncategorized' %></span>
+              <span>
+                <% if(post.categories.data[0]){ %>
+                  <a class="category-link" href="<%= url_for(post.categories.data[0].path) %>"><i class="fa fa-folder-open"></i> <%= post.categories.data[0].name %></a>
+                <% } else { %>
+                  <i class="fa fa-folder-open"></i> <%= 'Uncategorized' %>
+                <% } %>
+              </span>
               <span><i class="fa fa-tag"></i> <%= post.tags.length %> </span>
             </p>
           </div>
