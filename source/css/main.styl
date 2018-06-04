@@ -205,6 +205,22 @@
 
       &:first-child
         border-top: none
+      
+      /* quick fix for #18 */
+      padding: 0
+
+      .clearfix
+        width: 100%
+      .post-title
+        position: relative
+        i
+          position: absolute
+          top: 20px
+          left: 14px
+        a
+          display: block
+          padding: 14px
+          padding-left: 32px
 
     &:nth-child(odd)
       margin-right: 5px
