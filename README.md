@@ -144,7 +144,7 @@ Google Custom Search Engine[^1]
 ## License
 The MIT License[^2]
 
-Copyright (c) 2015-2017 Hiitea <luohaojing@gmail.com>
+Copyright (c) 2015-2018 Hiitea <luohaojing@gmail.com>
 
 [^1]: https://cse.google.com/
 [^2]: https://opensource.org/licenses/MIT
