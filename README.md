@@ -119,7 +119,11 @@ avatar: https://avatars2.githubusercontent.com/u/5300359?v=4&s=460
 social:
   github: https://github.com/sabrinaluo
   weibo: http://weibo.com/206663121
-  linkedin: 
+  linkedin:
+
+# flagcounter
+flagcounter_href: # https://info.flagcounter.com/xxxx
+flagcounter_img_src: # https://s01.flagcounter.com/xxxx
 ```
 
 #### Update
@@ -144,7 +148,7 @@ Google Custom Search Engine[^1]
 ## License
 The MIT License[^2]
 
-Copyright (c) 2015-2018 Hiitea <luohaojing@gmail.com>
+Copyright (c) 2015-2019 Hiitea <luohaojing@gmail.com>
 
 [^1]: https://cse.google.com/
 [^2]: https://opensource.org/licenses/MIT
@@ -153,5 +157,4 @@ Copyright (c) 2015-2018 Hiitea <luohaojing@gmail.com>
 BTC: 19U6USzi7WaFmY3DTkgn67EzYpTqZPNwRG  
 ![image](https://user-images.githubusercontent.com/5300359/30433338-cb7a9e48-9996-11e7-8e17-55f582b56e48.png)
 
-Alipay:  
-[![Alipay](http://7xow88.com1.z0.glb.clouddn.com/alip.jpg?imageView2/3/w/150/)](http://7xow88.com1.z0.glb.clouddn.com/alip.jpg)
+[![Coffee Fund](https://user-images.githubusercontent.com/5300359/53497706-baf13a00-3adf-11e9-8223-5aa1c63b8779.png)](https://user-images.githubusercontent.com/5300359/53497706-baf13a00-3adf-11e9-8223-5aa1c63b8779.png)
