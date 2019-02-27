@@ -6,7 +6,8 @@ var weibo = config.social.weibo || theme.social.weibo;
 var linkedin = config.social.linkedin || theme.social.linkedin;
 var location = config.location || theme.location;
 var url = config.url;
-var flagcounter_url = config.flagcounter_url;
+var flagcounter_href = config.flagcounter_href;
+var flagcounter_img_src = config.flagcounter_img_src;
 %>
 <div class="footer-wrapper container">
   <footer class="footer clearfix">
@@ -30,10 +31,10 @@ var flagcounter_url = config.flagcounter_url;
       by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
     </div>
     </div>
-    <% if(flagcounter_url){ %>
+    <% if(flagcounter_href){ %>
     <div class="footer-pageview">
-        <a href="https://info.flagcounter.com/mx4Y">
-          <img src="<%= flagcounter_url %>">
+        <a href="<%= flagcounter_href %>">
+          <img src="<%= flagcounter_img_src %>">
         </a>
     </div>
     <% } %>
