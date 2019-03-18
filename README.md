@@ -18,6 +18,10 @@ Github UI in 2017, which uses the black navbar
 ```
 git clone git@github.com:sabrinaluo/hexo-theme-replica.git themes/replica
 ```
+or
+```
+git clone https://github.com/sabrinaluo/hexo-theme-replica.git themes/replica
+```
 
 #### Configure
 Set `theme: replica` in `_config.yml` (the one in your root folder)
@@ -155,7 +159,7 @@ Google Custom Search Engine[^1]
 #### Q: How can I use category and tag?
 A: Create below files under `source` folder:
 
-`categories/index.md`
+`blog_root/source/categories/index.md`:
 
 ```
 ---
@@ -164,7 +168,7 @@ date: 2016-01-21 18:46:15
 ---
 ```
 
-`tags/index.md`
+`blog_root/source/tags/index.md`:
 
 ```
 ---
@@ -172,6 +176,8 @@ title: tags
 date: 2016-01-21 18:45:55
 ---
 ```
+
+Please note that you must specify `title` attribute using the same name with the folder, for example, if we add `blog_root/source/tags/index.md`, the `title` attribute in `index.md` must be `tags`.
 
 ## License
 The MIT License[^2]
