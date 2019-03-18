@@ -27,6 +27,10 @@ Modifying `blog_root/themes/replica/_config.yml` directly is **NOT** recommended
 It's suggested to configure your site through `blog_root/_config.yml` **(root folder).**
 
 Here is a sample of `blog_root/_config.yml`
+<details>
+<summary>CLICK ME</summary>
+<p>
+
 ``` yml
 # Hexo Configuration
 ## Docs: http://hexo.io/docs/configuration.html
@@ -137,6 +141,8 @@ In case you want the old version with grey navbar
 cd themes/replica
 git checkout 1.0 # AKA `git checkout -b 1.0 origin/1.0`
 ```
+</p>
+</details>
 
 ## Available Widgets
 ~~多说~~ (Duoshuo stopped the service since June, 2017)  
@@ -144,6 +150,28 @@ git checkout 1.0 # AKA `git checkout -b 1.0 origin/1.0`
 Disqus  
 Google Analytics  
 Google Custom Search Engine[^1]
+
+## FAQ
+#### Q: How can I use category and tag?
+A: Create below files under `source` folder:
+
+`categories/index.md`
+
+```
+---
+title: categories
+date: 2016-01-21 18:46:15
+---
+```
+
+`tags/index.md`
+
+```
+---
+title: tags
+date: 2016-01-21 18:45:55
+---
+```
 
 ## License
 The MIT License[^2]
