@@ -177,8 +177,6 @@ date: 2016-01-21 18:45:55
 ---
 ```
 
-Please note that you must specify `title` attribute using the same name with the folder, for example, if we add `blog_root/source/tags/index.md`, the `title` attribute in `index.md` must be `tags`.
-
 ## License
 The MIT License[^2]
 
