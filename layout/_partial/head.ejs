@@ -1,5 +1,6 @@
 <%
 var tags = page.tags ? page.tags.data : '';
+var favicon = config.favicon || 'https://github.githubassets.com/favicon.ico';
 %>
 
 <head>
@@ -24,7 +25,7 @@ var tags = page.tags ? page.tags.data : '';
   <meta http-equiv="Cache-Control" content="no-transform"/>
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
-  <link rel="icon" type="image/x-icon" href="<%= config.favicon %>">
+  <link rel="icon" type="image/x-icon" href="<%= favicon %>">
   <link rel="stylesheet" href="<%= config.root %>css/main.css">
   <link rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
