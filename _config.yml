@@ -1,26 +1,103 @@
-# left-side user profile
-avatar: # by default https://octodex.github.com/images/baracktocat.jpg
-location:
-email:
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: C小喵的技术专栏
+subtitle: 迷恋编程的小学生
+description: 勇往直前，知难而上
+author: HiiTea
+language: zh-CN
+timezone: 
+favicon: 
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://momonorothy.github.io/tech
+root: /tech/
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :year:month:day-:title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 0
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: replica
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:momonorthy/tech.git
+  branch: gh-pages
+
+# Google Analytics
+ga: UA-52574938-4
+
+#marked setting for markdown
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+
+gcs: 015579750388200492852:dnpv83myu4a
+baidutongji: d8749b933af749e1e5ec931bb403628f
+disqus: hiitea-tech
+
+location: Qu Zhou, China
+email: northy360[at]126.com
+
+avatar: https://avatars2.githubusercontent.com/u/5300359?v=4&s=460
 social:
-  github:
-  weibo:
+  github: https://github.com/momonorthy
+  weibo: 
   linkedin:
 
-# navbar menu
-menu:
- archives: true
- tags: true
- categories: true
-
-rss_dir: atom.xml
-
-# widget
-ga: # google analytics tracking code UA-XXXXXXX-X
-baidutongji: # baidutongji tracking code
-duoshuo: # duoshuo username
-gsc: # google custom search code
-
-# flagcounter
-flagcounter_href: # https://info.flagcounter.com/xxxx
-flagcounter_img_src: # https://s01.flagcounter.com/xxxx
+flagcounter_href: https://info.flagcounter.com/mx4Y
+flagcounter_img_src: //s01.flagcounter.com/count/mx4Y/bg_FFFFFF/txt_000000/border_FFFFFF/columns_3/maxflags_9/viewers_3/labels_0/pageviews_1/flags_0/percent_0/
