@@ -3,7 +3,14 @@ config.social = config.social || {};
 theme.social = theme.social || {};
 var github = config.social.github || theme.social.github;
 var weibo = config.social.weibo || theme.social.weibo;
+// var csdn = config.social.csdn || theme.social.csdn;
+// var cnblogs = config.social.cnblogs || theme..social.cnblogs;
+// var zhihu = config.social.zhihu || theme.social.zhihu;
+// var jianshu = config.social.jianshu || theme.social.jianshu;
 var linkedin = config.social.linkedin || theme.social.linkedin;
+var twitter = config.social.twitter || theme.social.twitter;
+var facebook = config.social.facebook || theme.social.facebook;
+var stackoverflow = config.social.stackoverflow || theme.social.stackoverflow;
 var location = config.location || theme.location;
 var email = config.email || theme.email;
 var url = config.url;
@@ -66,6 +73,12 @@ var avatar = config.avatar || theme.avatar || 'https://octodex.github.com/images
       <li class="social-media-item"><a href="<%= weibo %>" target="_blank"><i class="fa fa-weibo"></i></a></li>
       <% } if(linkedin){ %>
       <li class="social-media-item"><a href="<%= linkedin %>" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <% } if(twitter){ %>
+        <li class="social-media-item"><a href="<%= twitter %>" target="_blank"><i class="fa fa-twitter"></i></a></li>  
+      <% } if(facebook){ %>
+        <li class="social-media-item"><a href="<%= facebook %>" target="_blank"><i class="fa fa-facebook"></i></a></li>  
+      <% } if(stackoverflow){ %>
+        <li class="social-media-item"><a href="<%= stackoverflow %>" target="_blank"><i class="fa fa-stack-overflow"></i></a></li>  
       <% } %>
     </ul>
   </div>

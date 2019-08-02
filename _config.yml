@@ -3,9 +3,15 @@ avatar: # by default https://octodex.github.com/images/baracktocat.jpg
 location:
 email:
 social:
-  github:
-  weibo:
-  linkedin:
+  github: 
+  weibo: 
+  csdn:
+  cnblogs:
+  jianshu:
+  zhihu:
+  twitter:
+  facebook:
+  stackoverflow:
 
 # navbar menu
 menu:

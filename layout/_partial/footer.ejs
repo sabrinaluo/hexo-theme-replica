@@ -3,7 +3,14 @@ config.social = config.social || {};
 theme.social = theme.social || {};
 var github = config.social.github || theme.social.github;
 var weibo = config.social.weibo || theme.social.weibo;
+// var csdn = config.social.csdn || theme.social.csdn;
+// var cnblogs = config.social.cnblogs || theme..social.cnblogs;
+// var zhihu = config.social.zhihu || theme.social.zhihu;
+// var jianshu = config.social.jianshu || theme.social.jianshu;
 var linkedin = config.social.linkedin || theme.social.linkedin;
+var twitter = config.social.twitter || theme.social.twitter;
+var facebook = config.social.facebook || theme.social.facebook;
+var stackoverflow = config.social.stackoverflow || theme.social.stackoverflow;
 var location = config.location || theme.location;
 var url = config.url;
 var flagcounter_href = config.flagcounter_href;
@@ -24,6 +31,12 @@ var flagcounter_img_src = config.flagcounter_img_src;
       <li><a href="<%= weibo %>">Weibo</a></li>
       <% }if(linkedin){ %>
       <li><a href="<%= linkedin %>">Linkedin</a></li>
+      <% } if(twitter){ %>
+        <li ><a href="<%= twitter %>">Twitter</a></li>  
+      <% } if(facebook){ %>
+        <li><a href="<%= facebook %>">Facebook</a></li>  
+      <% } if(stackoverflow){ %>
+        <li ></li><a href="<%= stackoverflow %>">StackOverflow</a></li>  
       <% } %>
     </ul>
     <div class="footer-theme-info">
