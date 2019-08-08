@@ -13,6 +13,8 @@ var facebook = config.social.facebook || theme.social.facebook;
 var stackoverflow = config.social.stackoverflow || theme.social.stackoverflow;
 var location = config.location || theme.location;
 var url = config.url;
+var custom_name = config.footer.custom_name
+var custom_url = config.footer.custom_url
 var flagcounter_href = config.flagcounter_href;
 var flagcounter_img_src = config.flagcounter_img_src;
 %>
@@ -25,7 +27,8 @@ var flagcounter_img_src = config.flagcounter_img_src;
     <ul class="footer-social-link">
       <li>© 2019 <%= config.author %></li>
       <li><a href="<%= url %>">Home</a></li>
-      <li><a href="https://github.com/Kylin-Studio/">KyLin-Studio</a></li>
+      <li><a href="<%= custom_url %>"> <%=custom_name%> </a></li>
+
     </ul>
     <div class="footer-theme-info">
       Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
