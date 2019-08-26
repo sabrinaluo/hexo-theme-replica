@@ -18,32 +18,39 @@ var custom_url = config.footer.custom_url
 var flagcounter_href = config.flagcounter_href;
 var flagcounter_img_src = config.flagcounter_img_src;
 %>
-<div class="footer-wrapper container">
-  <footer class="footer clearfix">
-    <div class="clearfix">
-    <a href="<%= config.url %>" class="footer-logo">
-      <i class="fa fa-github"></i>
-    </a>
-    <ul class="footer-social-link">
-      <li>© 2019 <%= config.author %></li>
-      <li><a href="<%= url %>">Home</a></li>
-      <li><a href="<%= custom_url %>"> <%=custom_name%> </a></li>
+    <div class="footer-wrapper container">
+        <footer class="footer clearfix">
+            <div class="clearfix">
+                <a href="<%= config.url %>" class="footer-logo">
+                    <i class="fa fa-github"></i>
+                </a>
+                <ul class="footer-social-link">
+                    <li>© 2019
+                        <%= config.author %>
+                    </li>
+                    <li><a href="<%= url %>">Home</a></li>
+                    <li>
+                        <a href="<%= custom_url %>">
+                            <%=custom_name%>
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer-theme-info">
+                    Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a> by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
 
-    </ul>
-    <div class="footer-theme-info">
-      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
-    </div>
-    </div>
-    <% if(flagcounter_href){ %>
-    <div class="footer-pageview">
-        <a href="<%= flagcounter_href %>">
+                    <script type="text/javascript">
+                        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+                        document.write(unescape("%3Cspan id='cnzz_stat_icon_1277954792'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1277954792%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+                    </script>
+
+                </div>
+            </div>
+            <% if(flagcounter_href){ %>
+                <div class="footer-pageview">
+                    <a href="<%= flagcounter_href %>">
           <img src="<%= flagcounter_img_src %>">
         </a>
+                </div>
+                <% } %>
+        </footer>
     </div>
-    <% } %>
-
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277954792'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1277954792' type='text/javascript'%3E%3C/script%3E"));</script>
-    
-  </footer>
-</div>
