@@ -1,47 +1,62 @@
 <header class="header-wrapper desktop-only">
-  <div class="container header-site-detail">
-    <ul class="header-toolbar">
-      <li class="clearfix">
-        <a href="<%= url_for(theme.archive_dir) %>" class="header-toolbar-left"><i
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="<%= url_for(theme.archive_dir) %>" class="header-toolbar-left"><i
                   class="fa fa-file-text"></i> Posts </a>
-        <a href="<%= url_for(theme.archive_dir) %>"
-           class="header-toolbar-right"> <%= site.posts.length %> </a>
-      </li>
-      <li>
-        <a href="<%= url_for(theme.tag_dir) %>" class="header-toolbar-left"><i
+                <a href="<%= url_for(theme.archive_dir) %>" class="header-toolbar-right">
+                    <%= site.posts.length %>
+                </a>
+            </li>
+            <li>
+                <a href="<%= url_for(theme.tag_dir) %>" class="header-toolbar-left"><i
                   class="fa fa-tags"></i> Tags </a>
-        <a href="<%= url_for(theme.tag_dir) %>"
-           class="header-toolbar-right"> <%= site.tags.length %> </a>
-      </li>
-      <li>
-        <a href="<%= url_for(theme.category_dir) %>" class="header-toolbar-left"><i
+                <a href="<%= url_for(theme.tag_dir) %>" class="header-toolbar-right">
+                    <%= site.tags.length %>
+                </a>
+            </li>
+            <li>
+                <a href="<%= url_for(theme.category_dir) %>" class="header-toolbar-left"><i
                   class="fa fa-folder-open"></i> Categories </a>
-        <a href="<%= url_for(theme.category_dir) %>"
-           class="header-toolbar-right"> <%= site.categories.length %> </a>
-      </li>
-    </ul>
-    <h2 class="header-title">
-      <i class="fa fa-book text-muted"></i>
-      <a href="<%= config.root %>"><%= config.title %></a>
-      <% if(page.title === "tags"){ %>
-      /<a href="<%= url_for(theme.tag_dir) %>">Tags</a>
-      <% } %>
-      <% if(page.title === "categories"){ %>
-      /<a href="<%= url_for(theme.category_dir) %>">Categories</a>
-      <% } %>
-    </h2>
-  </div>
-
-  <div class="container">
-    <div class="header-tab-wrapper clearfix">
-      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
-      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
-      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
-      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
-      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+                <a href="<%= url_for(theme.category_dir) %>" class="header-toolbar-right">
+                    <%= site.categories.length %>
+                </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="<%= config.root %>">
+                <%= config.title %>
+            </a>
+            <% if(page.title === "tags"){ %>
+                /<a href="<%= url_for(theme.tag_dir) %>">Tags</a>
+                <% } %>
+                    <% if(page.title === "categories"){ %>
+                        /<a href="<%= url_for(theme.category_dir) %>">Categories</a>
+                        <% } %>
+        </h2>
     </div>
-  </div>
-  <%# header adscene %>
-  <%- partial('_widget/google-adscene') %>
 
+    <div class="container">
+        <div class="header-tab-wrapper clearfix">
+            <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+            <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+            <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+            <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+            <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+        </div>
+    </div>
+    <script async type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1277954792'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1277954792' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <%- partial('_widget/google-adscene') %>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({
+                google_ad_client: "ca-pub-1232558979481700",
+                enable_page_level_ads: true
+            });
+        </script>
 </header>
