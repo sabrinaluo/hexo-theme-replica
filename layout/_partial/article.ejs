@@ -1,12 +1,14 @@
 <%
 var publishTimestamp = page.date.valueOf();
 var upPublishTimestamp = page.updated.valueOf();
-var author = page.author;
+var author = page.author || config.author || 'admin';
+var page_url = page.permalink;
+var iscopyright = page.iscopyright || false;
 %>
     <div class="post-container container">
         <h3>
             <i class="fa fa-user-o"></i>
-            <%= author || config.author || '' %>
+            <%= author %>
 
                 <span class="post-date float-right" title="Create: {{moment(<%= publishTimestamp %>).format('MMM DD, YYYY, h:mm:ss A')}}">
                    <i class="fa fa-pencil-square-o"></i>
@@ -25,6 +27,19 @@ var author = page.author;
                 <%= page.title || 'Untitle' %>
             </h1>
             <%- page.content %>
+
+                <br>
+                <HR style="FILTER:alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#987cb9 SIZE=3>
+                <% if(iscopyright){ %>
+                    <span> 
+                        本文标题: <%= page.title %> <br>
+                        文章作者: <%= author %> <br>
+                        发布时间:  {{moment(<%= publishTimestamp %>).format("YYYY-MM-DD HH:mm:ss")}}  <br>
+                        最后更新:  {{moment(<%= upPublishTimestamp %>).format("YYYY-MM-DD HH:mm:ss")}} <br>
+                        原始链接: <%= page_url %> <br>
+                        许可协议: <a href='https://creativecommons.org/licenses/by-sa/4.0/)'>知识共享-署名-非商业性使用 4.0 国际</a> 转载请保留原文链接及作者。<a href='https://tdou.cc/cn/cc4_0.html)'>CC许可协议</a> 
+                    </span>
+                    <%}%>
         </article>
     </div>
 
