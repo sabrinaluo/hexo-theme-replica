@@ -1,3 +1,9 @@
+# 自定义改版
+- [x] add google adscene 
+- [x] add posts custom author and updated
+
+--- 
+
 # Replica [![LICENSE MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 Github style replication for hexo theme. 
 
