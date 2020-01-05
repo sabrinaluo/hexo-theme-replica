@@ -19,7 +19,7 @@ rss_dir: atom.xml
 ga: # google analytics tracking code UA-XXXXXXX-X
 baidutongji: # baidutongji tracking code
 duoshuo: # duoshuo username
-gsc: # google custom search code
+gcs: # google custom search code
 
 # flagcounter
 flagcounter_href: # https://info.flagcounter.com/xxxx
