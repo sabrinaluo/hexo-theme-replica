@@ -1,5 +1,6 @@
 <%
 var publishTimestamp = page.date.valueOf();
+var github_edit = config.github_edit || {};
 %>
 <div class="post-container container">
   <h3>
@@ -7,7 +8,12 @@ var publishTimestamp = page.date.valueOf();
     <%= config.author || '' %>
 
     <span class="post-date float-right" title="{{moment(<%= publishTimestamp %>).format('MMM DD, YYYY, h:mm:ss A')}}">
-      <i class="fa fa-pencil-square-o"></i>
+      <% if(github_edit.enable){ %>
+      <a class="fa fa-pencil-square-o" href="https://github.com/<%= github_edit.user%>/<%= github_edit.repo%>/edit/<%= github_edit.branch%>/source/<%= page.source%>" target="_blank">
+      </a>
+      <% }else{ %>
+          <i class="fa fa-pencil-square-o"></i>
+      <%  } %>
       {{moment(<%= publishTimestamp %>).fromNow()}}
     </span>
   </h3>

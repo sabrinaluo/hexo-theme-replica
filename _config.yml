@@ -24,3 +24,10 @@ gcs: # google custom search code
 # flagcounter
 flagcounter_href: # https://info.flagcounter.com/xxxx
 flagcounter_img_src: # https://s01.flagcounter.com/xxxx
+
+# github-edit 是否显示跳转到github文件编辑页链接
+github_edit:
+  enable: false  #是否启用
+  user: xxx #博客源文件项目用户名
+  repo: xxx #博客源文件项目名称
+  branch: master #博客源文件项目分支
