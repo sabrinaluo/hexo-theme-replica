@@ -25,9 +25,7 @@ gcs: # google custom search code
 flagcounter_href: # https://info.flagcounter.com/xxxx
 flagcounter_img_src: # https://s01.flagcounter.com/xxxx
 
-# github-edit 是否显示跳转到github文件编辑页链接
-github_edit:
-  enable: false  #是否启用
-  user: xxx #博客源文件项目用户名
-  repo: xxx #博客源文件项目名称
-  branch: master #博客源文件项目分支
+# article_edit 在文章页显示跳转到编辑页
+article_edit:
+  enable: false #是否启用
+  prefix: https://github.com/xxx/xxx/edit/master/source/  #编辑页前缀

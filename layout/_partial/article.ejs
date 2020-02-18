@@ -8,8 +8,8 @@ var github_edit = config.github_edit || {};
     <%= config.author || '' %>
 
     <span class="post-date float-right" title="{{moment(<%= publishTimestamp %>).format('MMM DD, YYYY, h:mm:ss A')}}">
-      <% if(github_edit.enable){ %>
-      <a class="fa fa-pencil-square-o" href="https://github.com/<%= github_edit.user%>/<%= github_edit.repo%>/edit/<%= github_edit.branch%>/source/<%= page.source%>" target="_blank">
+      <% if(article_edit.enable){ %>
+      <a class="fa fa-pencil-square-o" href="<%= article_edit.prefix%><%= page.source%>" target="_blank">
       </a>
       <% }else{ %>
           <i class="fa fa-pencil-square-o"></i>
