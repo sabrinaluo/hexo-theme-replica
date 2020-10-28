@@ -1,7 +1,9 @@
 # Replica [![LICENSE MIT](https://img.shields.io/badge/LICENSE-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 Github style replication for hexo theme. 
 
-Just in case you are working in the office but suddenly have some genius ideas. :two_hearts:  
+*If you are using Gatsby, kindly check https://github.com/sabrinaluo/gatsby-theme-replica*
+
+Because we love octocat! :two_hearts:
 [Click here to view the demo site](//sabrinaluo.github.io/tech)
 
 Issues & Contributions are welcome! :stuck_out_tongue:
@@ -10,7 +12,7 @@ Issues & Contributions are welcome! :stuck_out_tongue:
 #### v1.0  
 Github UI before 2017, which uses the grey navbar
 
-#### v2.0 (in progress)  
+#### v2.0 (~~in progress~~) lack of maintenance
 Github UI in 2017, which uses the black navbar
 
 ## Setup
